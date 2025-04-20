@@ -4,7 +4,7 @@
 
 ## Api
 
-To debug or run the api locally use 
+To debug or run the api locally use
 
 ```bash
 dotnet watch run
@@ -26,19 +26,18 @@ Example to run individual test parts:
 dotnet test --filter "category=application"
 ```
 
+## Third-Party Content Notice
+
+This project includes data derived from:
+
+- **Northwind PostgreSQL SQL Dump**
+  - Original source: https://github.com/pthom/northwind_psql
+  - License: MIT
+  - Author: [Pierre THOMAS](https://github.com/pthom)
+
 ## Database
-To set up the database in a Docker container, use the provided Compose files in __extras__/db/postgres/.
 
-
-### Northwind Database
-
-This project includes the Northwind sample database, originally created by Microsoft.
-
-> **Source:** [Northwind database on CodePlex (archived)](http://northwinddatabase.codeplex.com/license)  
-> **License:** [Microsoft Public License (Ms-PL)](https://opensource.org/licenses/MS-PL)
-
-The Northwind database content is used under the terms of the **Microsoft Public License (Ms-PL)**.  
-See [`THIRD_PARTY_NOTICES.md`](./THIRD_PARTY_NOTICES.md) for details.
+To set up the database in a Docker container, use the provided Compose files in __extras__/db/postgres/
 
 1. Start in Setup Mode (with root access)
 This allows you to run initialization commands as root inside the container.
