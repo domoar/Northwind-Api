@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "PlantUmlClassDiagramGenerator": {
+      "version": "1.4.0",
+      "commands": [
+        "puml-gen"
+      ],
+      "rollForward": false
+    },
+    "dotnet-reportgenerator-globaltool": {
+      "version": "5.4.1",
+      "commands": [
+        "reportgenerator"
+      ],
+      "rollForward": false
+    },
+    "coverlet.console": {
+      "version": "6.0.2",
+      "commands": [
+        "coverlet"
+      ],
+      "rollForward": false
+    },
+    "dotnet-ef": {
+      "version": "9.0.4",
+      "commands": [
+        "dotnet-ef"
+      ],
+      "rollForward": false
+    },
+    "ultra": {
+      "version": "2.0.2",
+      "commands": [
+        "ultra"
+      ],
+      "rollForward": false
+    },
+    "dotnet-sonarscanner": {
+      "version": "9.0.2",
+      "commands": [
+        "dotnet-sonarscanner"
+      ],
+      "rollForward": false
+    },
+    "csharpier": {
+      "version": "0.30.6",
+      "commands": [
+        "dotnet-csharpier"
+      ],
+      "rollForward": false
+    }
+  }
+}

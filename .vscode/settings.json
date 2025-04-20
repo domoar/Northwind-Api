@@ -1,0 +1,91 @@
+{
+    "files.exclude": {
+        "**/bin": true,
+        "**/obj": true,
+        "build.**": true,
+        ".vs": true
+    },
+    "files.encoding": "utf8bom",
+    "dbmlERDPreviewer.preferredTheme": "dark",
+
+    "todo-tree.general.tags": [
+    "TODO",
+    "FIXME",
+    "CHORE",
+    "HACK",
+    "REVIEW",
+    "NOTE",
+    "WTF",
+    "REQ",
+    "RFE",
+    "BUG"
+  ],
+  "todo-tree.highlights.defaultHighlight": {
+    "type": "line",
+    "icon": "$(check)",
+    "foreground": "#ffffff",
+    "background": "#444444",
+    "opacity": 50
+  },
+  "todo-tree.highlights.customHighlight": {
+    "TODO": {
+      "icon": "$(check)",
+      "foreground": "#ffffff",
+      "background": "#2196f3"
+    },
+    "FIXME": {
+      "icon": "$(warning)",
+      "foreground": "#ffffff",
+      "background": "#E51400"
+    },
+    "CHORE": {
+      "icon": "$(gear)",
+      "foreground": "#ffffff",
+      "background": "#007ACC"
+    },
+    "HACK": {
+      "icon": "$(flame)",
+      "foreground": "#ffffff",
+      "background": "#ff9800"
+    },
+    "REVIEW": {
+      "icon": "$(eye)",
+      "foreground": "#ffffff",
+      "background": "#8800cc"
+    },
+    "NOTE": {
+      "icon": "$(info)",
+      "foreground": "#ffffff",
+      "background": "#009688"
+    },
+    "WTF": {
+      "icon": "$(question)",
+      "foreground": "#ffffff",
+      "background": "#ff1493"
+    },
+    "REQ": {
+      "icon": "$(file)",
+      "foreground": "#ffffff",
+      "background": "#9b59b6"
+    },
+    "RFE": {
+      "icon": "$(rocket)",
+      "foreground": "#ffffff",
+      "background": "#2980b9"
+    },
+    "BUG": {
+      "icon": "$(bug)",
+      "foreground": "#ffffff",
+      "background": "#c0392b"
+    }
+  },
+"todo-tree.highlights.scribble": false,
+"todo-tree.tree.showTagsFromActiveFile": false,
+"todo-tree.general.statusBar": "tags",
+"todo-tree.general.statusBarClickBehaviour": "cycle",
+"todo-tree.tree.showScanModeButton": false,
+"todo-tree.general.debug": false,
+"todo-tree.tree.scanMode": "workspace",
+"todo-tree.tree.showBadges": false,
+"todo-tree.tree.disableCompactFolders": true
+}

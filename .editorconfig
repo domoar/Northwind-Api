@@ -1,0 +1,24 @@
+﻿root = true
+
+[*.cs]
+indent_style = space
+tab_width = 4
+indent_size = 2
+max_line_length = 120
+dotnet_diagnostic.IDE0059.severity = warning
+end_of_line = lf
+charset = utf-8-bom
+csharp_style_braces_on_same_line_as_declaration = true:suggestion
+csharp_style_braces_on_same_line_as_control_statements = true:suggestion
+csharp_new_line_before_open_brace = none:suggestion
+csharp_new_line_after_open_brace = false:suggestion
+csharp_new_line_before_close_brace = false:suggestion
+insert_final_newline = true
+csharp_style_namespace_declarations = file_scoped:warning
+
+# Supressing primary constructors until they become good by design
+csharp_style_prefer_primary_constructors = false
+dotnet_diagnostic.IDE0290.severity = warning
+
+# Order using statements
+dotnet_sort_system_directives_first = true
