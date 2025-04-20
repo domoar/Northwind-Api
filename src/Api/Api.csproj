@@ -47,4 +47,10 @@
 		<ProjectReference Include="..\..\src\Infrastructure\Infrastructure.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<None Include="..\..\__extras__\docu\**\*">
+			<Link>docu\%(RecursiveDir)%(Filename)%(Extension)</Link>
+		</None>
+	</ItemGroup>
+
 </Project>
