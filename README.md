@@ -1,6 +1,6 @@
 # Northwind
 
-[![Build and Test .NET Project](https://github.com/domoar/Northwind/actions/workflows/build.yaml/badge.svg?branch=main)](https://github.com/domoar/Northwind/actions/workflows/build.yaml?branch=main)
+[![Build, Test & Generate docs](https://github.com/domoar/Northwind-Api/actions/workflows/build.yaml/badge.svg)](https://github.com/domoar/Northwind-Api/actions/workflows/build.yaml)
 
 ## Api
 
