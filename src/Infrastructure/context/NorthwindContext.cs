@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Infrastructure.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Context;
+namespace Infrastructure.context;
 
 public partial class NorthwindContext : DbContext
 {
