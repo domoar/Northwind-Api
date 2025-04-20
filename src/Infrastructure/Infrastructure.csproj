@@ -27,7 +27,6 @@
 		<None Include="..\..\__extras__\db\**\*">
 			<Link>db\%(RecursiveDir)%(Filename)%(Extension)</Link>
 		</None>
-		
 		<None Include="..\..\__extras__\db\**\docker-compose.override.yml">
 			<Link>db\%(RecursiveDir)docker-compose.override.yml</Link>
 			<DependentUpon>docker-compose.yml</DependentUpon>

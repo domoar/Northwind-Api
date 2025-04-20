@@ -29,6 +29,17 @@ dotnet test --filter "category=application"
 ## Database
 To set up the database in a Docker container, use the provided Compose files in __extras__/db/postgres/.
 
+
+### Northwind Database
+
+This project includes the Northwind sample database, originally created by Microsoft.
+
+> **Source:** [Northwind database on CodePlex (archived)](http://northwinddatabase.codeplex.com/license)  
+> **License:** [Microsoft Public License (Ms-PL)](https://opensource.org/licenses/MS-PL)
+
+The Northwind database content is used under the terms of the **Microsoft Public License (Ms-PL)**.  
+See [`THIRD_PARTY_NOTICES.md`](./THIRD_PARTY_NOTICES.md) for details.
+
 1. Start in Setup Mode (with root access)
 This allows you to run initialization commands as root inside the container.
 
