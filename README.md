@@ -25,20 +25,3 @@ Example to run individual test parts:
 ```bash
 dotnet test --filter "category=application"
 ```
-
-# Usage
-
-Want the full parametric experience?
-
-Use
-
-```bash
-git clone https://github.com/domoar/Northwind.git
-cd Northwind
-```
-
-to clone the repository then customize with 
-
-```bash
-dotnet new cleanarch --name MyApp --SolutionName "MyApp"
-```
