@@ -1,4 +1,5 @@
 ﻿using Api.dtos;
+using Application.service;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
@@ -9,75 +10,26 @@ namespace Api.controller.v1;
 [Route("api/[controller]/[action]")]
 [ApiVersion("1")]
 [Produces("application/json")]
-public class DefaultController : ControllerBase {
-  private readonly ILogger<DefaultController> _logger;
+public class NorthwindController : ControllerBase {
+  private readonly ILogger<NorthwindController> _logger;
+  private readonly NorthwindService _service;
 
-  public DefaultController(ILogger<DefaultController> logger) {
+  public NorthwindController(ILogger<NorthwindController> logger, NorthwindService service) {
       _logger = logger;
+      _service = service;
   }
 
   [HttpGet]
-  public async Task<IActionResult> GetSomething([FromQuery] int something, CancellationToken cancellationToken) {
-    await Task.Delay(1, cancellationToken);
-    return Ok(something);
+  public async Task<IActionResult> GetEmployees(CancellationToken cancellationToken) {
+    var result = await _service.FindEmployees(cancellationToken);
+    _logger.LogDebug("Employees: {Result}", result);
+    return Ok(result);
   }
 
-  [HttpPost]
-  public async Task<IActionResult> CreateSomething([FromBody] SomethingDto dto, CancellationToken cancellationToken) {
-    var newId = new Random().Next(1, 1000);
-    var created = new SomethingDto { Id = newId, Value = dto.Value };
-
-    await Task.Delay(1, cancellationToken);
-
-    _logger.LogInformation("Created new Something with ID {Id}", newId);
-
-    return CreatedAtAction(
-        nameof(CreateSomething),
-        new { something = created.Value },
-        created);
-  }
-
-  [HttpPut("{id}")]
-  public async Task<IActionResult> UpdateSomething(
-      int id,
-      [FromBody] SomethingDto dto,
-      CancellationToken cancellationToken) {
-    _logger.LogInformation("Updating Something {Id} to Value {Value}", id, dto.Value);
-    await Task.Delay(1, cancellationToken);
-
-    return NoContent();
-  }
-
-  [HttpPatch("{id}")]
-  public async Task<IActionResult> PatchSomething(
-      int id,
-      [FromBody] JsonPatchDocument<SomethingDto> patchDoc,
-      CancellationToken cancellationToken) {
-    if (patchDoc == null)
-      return BadRequest();
-
-    var existing = new SomethingDto { Id = id, Value = 0 };
-
-    patchDoc.ApplyTo(existing, error =>
-    {
-      var key = error.Operation?.path?.TrimStart('/');
-      ModelState.AddModelError(key ?? string.Empty, error.ErrorMessage);
-    });
-
-    if (!ModelState.IsValid)
-      return ValidationProblem(ModelState);
-
-    _logger.LogInformation("Patched Something {Id}, new Value {Value}", id, existing.Value);
-    await Task.Delay(1, cancellationToken);
-
-    return NoContent();
-  }
-
-  [HttpDelete("{id}")]
-  public async Task<IActionResult> DeleteSomething(int id, CancellationToken cancellationToken) {
-    _logger.LogInformation("Deleted Something with ID {Id}", id);
-    await Task.Delay(1, cancellationToken);
-
-    return NoContent();
+  [HttpGet]
+  public async Task<IActionResult> GetCustomers(CancellationToken cancellationToken) {
+    var result = await _service.FindCustomers(cancellationToken);
+    _logger.LogDebug("Customers: {Result}", result);
+    return Ok(result);
   }
 }

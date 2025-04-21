@@ -26,8 +26,15 @@ builder.Services.AddDefaultApiVersioning();
 builder.Services.AddDefaultResponseCompression();
 builder.Services.AddDefaultSwaggerGeneration();
 
+builder.Services.AddSwaggerGen();
+
 builder.Services.AddDomain();
-builder.Services.AddInfrastructure();
+
+builder.Services.AddInfrastructure(
+  builder.Environment,
+  builder.Configuration.GetSection("ConnectionStrings")
+);
+
 builder.Services.AddApplication();
 
 builder.Services.AddControllers();
@@ -38,7 +45,14 @@ builder.Services.AddMemoryCache();
 
 builder.Services.AddHttpContextAccessor();
 
+builder
+  .Services.AddControllers()
+  .AddJsonOptions(options => {
+    options.JsonSerializerOptions.WriteIndented = false;
+  });
+
 builder.Services.AddSingleton<Banner>();
+
 var app = builder.Build();
 
 app.UseMiddleware<GlobalExceptionHandler>();
@@ -52,12 +66,15 @@ app.UseResponseCompression();
 
 if (app.Environment.IsDevelopment() || app.Environment.IsProduction()) {
   app.UseSwagger();
-  app.UseSwaggerUI(options => {
-    options.SwaggerEndpoint("../swagger/v1/swagger.json", "Cleanarchitecture Template API V1");
+  app.UseSwaggerUI(options =>
+  {
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Cleanarchitecture Template V1");
     options.DefaultModelRendering(Swashbuckle.AspNetCore.SwaggerUI.ModelRendering.Model);
     options.ConfigObject.AdditionalItems["syntaxHighlight"] = false;
+    options.RoutePrefix = "swagger";
   });
 }
+
 
 
 //app.MapHealthChecks(

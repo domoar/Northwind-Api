@@ -7,7 +7,7 @@
 To debug or run the api locally use
 
 ```bash
-dotnet watch run
+dotnet watch run --launch-profile "https"
 ```
 
 ## Testing

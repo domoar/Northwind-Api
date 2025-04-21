@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using Infrastructure.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace Infrastructure.context;
 
 public partial class NorthwindContext : DbContext
 {
-    public NorthwindContext(DbContextOptions<NorthwindContext> options)
+  private readonly ILogger<NorthwindContext> _logger;
+    public NorthwindContext(ILogger<NorthwindContext> logger, DbContextOptions<NorthwindContext> options)
         : base(options)
     {
+      _logger = logger;
     }
 
     public virtual DbSet<category> categories { get; set; }
