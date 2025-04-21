@@ -272,7 +272,7 @@ public partial class NorthwindContext : DbContext
             entity.Property(e => e.state_region).HasMaxLength(50);
         });
 
-        OnModelCreatingPartial(modelBuilder);
+    OnModelCreatingPartial(modelBuilder);
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

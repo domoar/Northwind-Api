@@ -56,7 +56,7 @@ You should now be in a root@postgres shell.
 
 Run your required setup/configuration commands here (e.g., setting up permissions, copying files, adjusting volumes, etc.).
 
-2. Stop and Restart in Production Mode
+2. Stop and Restart in Production Mode.
 Once your setup is done, bring the container down:
 
 ```bash

@@ -32,7 +32,7 @@ builder.Services.AddDomain();
 
 builder.Services.AddInfrastructure(
   builder.Environment,
-  builder.Configuration.GetSection("ConnectionStrings")
+  builder.Configuration
 );
 
 builder.Services.AddApplication();
