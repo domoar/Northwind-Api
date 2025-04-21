@@ -1,0 +1,9 @@
+@startuml
+class NorthwindRepository {
+    - <<readonly>> _logger : ILogger<NorthwindRepository>
+    - <<readonly>> _factory : IDbContextFactory<NorthwindContext>
+    + NorthwindRepository(logger:ILogger<NorthwindRepository>, factory:IDbContextFactory<NorthwindContext>)
+    + <<async>> FetchEmployees(cancellationToken:CancellationToken) : Task<employee[]>
+    + <<async>> FetchCustomers(cancellationToken:CancellationToken) : Task<customer[]>
+}
+@enduml
