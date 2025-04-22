@@ -31,7 +31,7 @@ dotnet test --filter "category=application"
 This project includes data derived from:
 
 - **Northwind PostgreSQL SQL Dump**
-  - Original source: https://github.com/pthom/northwind_psql
+  - Original source: [Northwind PostgreSQL Sample on GitHub](https://github.com/pthom/northwind_psql)
   - License: MIT
   - Author: [Pierre THOMAS](https://github.com/pthom)
 
