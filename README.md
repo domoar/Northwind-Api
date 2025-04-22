@@ -53,17 +53,42 @@ This project supports a dual-mode setup for PostgreSQL using Docker Compose:
 Before starting the container for the first time:
 
 1. Create the directory `C:/DockerVolumes/postgres/tls`
+
+    ```bash
+    mkdir C:\DockerVolumes\postgres\tls
+    ```
+
 2. Place your SSL certificate and key inside:
    - `certificate.crt`
    - `key.pem`
+
+    ```bash
+    copy .\__extras__\tls\certificate.crt C:\DockerVolumes\postgres\tls\
+    copy .\__extras__\tls\key.pem C:\DockerVolumes\postgres\tls\
+    ```
+
+3. Create the directory `C:/DockerVolumes/postgres/sql/northwind`
+
+    ```bash
+    mkdir C:\DockerVolumes\postgres\tls
+    ```
+
+4. Place the .sql files from `__extras__/db/postgres/sql` inside:
+   - `create-db-northwind.sql`
+   - `create-schema-northwind.sql`
+   - `northwind.sql`
+
+    ```bash
+    copy .\__extras__\db\postgres\sql\create-db-northwind.sql C:\DockerVolumes\postgres\sql\northwind\
+    copy .\__extras__\db\postgres\sql\create-schema-northwind.sql C:\DockerVolumes\postgres\sql\northwind\
+    copy .\__extras__\db\postgres\sql\northwind.sql C:\DockerVolumes\postgres\sql\northwind\
+    ```
 
 These files are mounted read-only into the container and required for PostgreSQL to start with SSL.
 
 All configuration files are located under:
 
-```bash
-extras/db/postgres/
-```
+`__extras__/db/postgres/`
 
 ### Setup Mode – Root Access, No TLS
 
