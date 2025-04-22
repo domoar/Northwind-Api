@@ -104,12 +104,13 @@ This uses only docker-compose.yml and ignores docker-compose.override.yml.
 Open a Shell Inside the Container
 ```bash
 docker compose exec db bash
+```
+
 You should now see a root@postgres prompt.
 
 Run Setup Commands
-bash
-Kopieren
-Bearbeiten
+
+```bash
 chown postgres:postgres /var/lib/postgresql/tablespace
 chown postgres:postgres /var/lib/postgresql/tablespace/northwind
 chown postgres:postgres /var/lib/postgresql/key.pem
