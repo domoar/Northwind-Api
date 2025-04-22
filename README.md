@@ -15,7 +15,15 @@ dotnet watch run --launch-profile "https"
 All Tests can be run by chaning the working directory of the unit or integration tests and then using the command:
 
 ```bash
-dotnet test
+cd tests/IntegrationTests
+dotnet test --logger "console;verbosity=detailed"
+```
+
+or
+
+```bash
+cd tests/UnitTests
+dotnet test --logger "console;verbosity=detailed"
 ```
 
 Applying the `[Trait]` attribute at the **class** level allows, that every test method in that class can be run seperatly.
