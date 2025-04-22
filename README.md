@@ -99,9 +99,12 @@ Use this mode to fix file ownership and permissions. This runs the container wit
 ```bash
 cd __extras__/db/postgres/
 docker compose --no-override up --build
+```
+
 This uses only docker-compose.yml and ignores docker-compose.override.yml.
 
 Open a Shell Inside the Container
+
 ```bash
 docker compose exec db bash
 ```
