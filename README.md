@@ -35,51 +35,105 @@ This project includes data derived from:
   - License: MIT
   - Author: [Pierre THOMAS](https://github.com/pthom)
 
-## Database
+## PostgreSQL Database Setup with Docker Compose
 
-To set up the database in a Docker container, use the provided Compose files in __extras__/db/postgres/
+This project supports a dual-mode setup for PostgreSQL using Docker Compose:
 
-1. Start in Setup Mode (with root access)
-This allows you to run initialization commands as root inside the container.
+- **Setup Mode** (with root access): Use this to perform initial configuration, set permissions, and prepare mounted volumes.
+- **Production Mode** (with TLS and `postgres` user): Use this mode for secure, day-to-day database operations.
 
-```bash
-docker compose -f docker-compose.yml -f docker-compose.override.yml up --build
-```
-
-Then in a second terminal, open a shell inside the running container:
+All configuration files are located under:
 
 ```bash
-docker exec -it db bash
+extras/db/postgres/
 ```
 
-You should now be in a root@postgres shell.
+### Setup Mode – Root Access, No TLS
 
-Run your required setup/configuration commands here (e.g., setting up permissions, copying files, adjusting volumes, etc.).
+Use this mode to fix file ownership and permissions. This runs the container without TLS and as the root user.
 
-2. Stop and Restart in Production Mode.
-Once your setup is done, bring the container down:
+#### Start the Container in Setup Mode
+
+```bash
+cd __extras__/db/postgres/
+docker compose --no-override up --build
+This uses only docker-compose.yml and ignores docker-compose.override.yml.
+
+Open a Shell Inside the Container
+```bash
+docker compose exec db bash
+You should now see a root@postgres prompt.
+
+Run Setup Commands
+bash
+Kopieren
+Bearbeiten
+chown postgres:postgres /var/lib/postgresql/tablespace
+chown postgres:postgres /var/lib/postgresql/tablespace/northwind
+chown postgres:postgres /var/lib/postgresql/key.pem
+chown postgres:postgres /var/lib/postgresql/certificate.crt
+chmod 400 /var/lib/postgresql/key.pem
+chmod 400 /var/lib/postgresql/certificate.crt
+exit
+```
+
+Stop the Container
 
 ```bash
 docker compose down
 ```
 
-Then start the database in secure (non-root) mode:
+### Production Mode – Secure, With TLS
+
+Now that setup is complete, start the database securely using TLS and the postgres user.
+
+Start the Container in Production Mode
 
 ```bash
 docker compose up -d
 ```
 
-Now in a new terminal, open a shell again:
+This automatically combines docker-compose.yml and docker-compose.override.yml.
+
+Open a Shell Inside the Container
 
 ```bash
-docker exec -it db bash
+docker compose exec db bash
 ```
 
-You should now be inside as postgres@postgres.
+You should now be logged in as postgres@postgres.
 
-Run your SQL initialization scripts or psql commands here as needed.
+Run SQL Initialization Scripts
 
-You're now running the database securely with locked-down permissions. Use this dual-mode approach any time you need elevated setup access.
+```bash
+psql --dbname=postgres --username=postgres --file=/sql/create-db-northwind.sql
+psql --dbname=buch --username=buch --file=/sql/create-schema-northwind.sql
+psql --dbname=postgres --username=postgres --file=/sql/northwind.sql
+exit
+```
+
+Stop the Container When Done
+
+```bash
+docker compose down
+```
+
+Switching Modes
+Setup Mode:
+Use --no-override to ignore the secure config:
+
+```bash
+docker compose --no-override up
+```
+
+Production Mode:
+Just run:
+
+```bash
+docker compose up -d
+```
+
+This flexible dual-mode approach allows for secure database operations while preserving the ability to make low-level system changes when necessary.
 
 ## Migration
 
