@@ -50,6 +50,15 @@ This project supports a dual-mode setup for PostgreSQL using Docker Compose:
 - **Setup Mode** (with root access): Use this to perform initial configuration, set permissions, and prepare mounted volumes.
 - **Production Mode** (with TLS and `postgres` user): Use this mode for secure, day-to-day database operations.
 
+Before starting the container for the first time:
+
+1. Create the directory `C:/DockerVolumes/postgres/tls`
+2. Place your SSL certificate and key inside:
+   - `certificate.crt`
+   - `key.pem`
+
+These files are mounted read-only into the container and required for PostgreSQL to start with SSL.
+
 All configuration files are located under:
 
 ```bash
