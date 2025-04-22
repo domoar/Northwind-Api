@@ -27,9 +27,9 @@ public NorthwindApiFactory(){
 
   _logger = loggerFactory.CreateLogger<NorthwindApiFactory>();
 
-  _databaseContainer =new PostgreSqlBuilder()
-    .WithImage("")
-    .WithName("")
+_databaseContainer = new PostgreSqlBuilder()
+    .WithImage("postgres:16.2-bookworm")
+    .WithName("northwind-postgres-testcontainer")
     .WithCleanUp(true)
     .WithPortBinding(8888, 8888)
     .Build();
@@ -47,6 +47,7 @@ public NorthwindApiFactory(){
 
   protected override void ConfigureWebHost(IWebHostBuilder builder) {
     var integrationTestConnection = _databaseContainer.GetConnectionString();
+    _logger.LogDebug("Testcontainer: {ContainerName} is available at {Connection}", _databaseContainer.Name, integrationTestConnection);
     //TODO inject new connection to webhost without breaking the cfg
     base.ConfigureWebHost(builder);
   }
