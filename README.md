@@ -197,8 +197,8 @@ dotnet ef dbcontext scaffold \
   --context NorthwindContext \
   --project src/Infrastructure \
   --startup-project src/Api \
-  --namespace Infrastructure.Entities \
-  --context-namespace Infrastructure.Context \
+  --namespace Infrastructure.entity \
+  --context-namespace Infrastructure.context \
   --schema northwind \
   --use-database-names \
   --no-onconfiguring \

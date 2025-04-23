@@ -22,14 +22,14 @@ public class NorthwindController : ControllerBase {
   [HttpGet]
   public async Task<IActionResult> GetEmployees(CancellationToken cancellationToken) {
     var result = await _service.FindEmployees(cancellationToken);
-    _logger.LogDebug("Employees: {Result}", result);
+    _logger.LogInformation("Employees: {@Result}", result);
     return Ok(result);
   }
 
   [HttpGet]
   public async Task<IActionResult> GetCustomers(CancellationToken cancellationToken) {
     var result = await _service.FindCustomers(cancellationToken);
-    _logger.LogDebug("Customers: {Result}", result);
+    _logger.LogInformation("Customers: {@Result}", result);
     return Ok(result);
   }
 }
