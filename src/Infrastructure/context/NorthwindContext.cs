@@ -45,7 +45,7 @@ public partial class NorthwindContext : DbContext
         {
             entity.HasKey(e => e.category_id).HasName("pk_categories");
 
-            entity.ToTable("categories", "northwind");
+            entity.ToTable("categories");
 
             entity.Property(e => e.category_id).ValueGeneratedNever();
             entity.Property(e => e.category_name).HasMaxLength(15);
@@ -55,7 +55,7 @@ public partial class NorthwindContext : DbContext
         {
             entity.HasKey(e => e.customer_id).HasName("pk_customers");
 
-            entity.ToTable("customers", "northwind");
+            entity.ToTable("customers");
 
             entity.Property(e => e.customer_id).HasMaxLength(5);
             entity.Property(e => e.address).HasMaxLength(60);
@@ -83,7 +83,7 @@ public partial class NorthwindContext : DbContext
                     j =>
                     {
                         j.HasKey("customer_id", "customer_type_id").HasName("pk_customer_customer_demo");
-                        j.ToTable("customer_customer_demo", "northwind");
+                        j.ToTable("customer_customer_demo");
                         j.IndexerProperty<string>("customer_id").HasMaxLength(5);
                         j.IndexerProperty<string>("customer_type_id").HasMaxLength(5);
                     });
@@ -93,7 +93,7 @@ public partial class NorthwindContext : DbContext
         {
             entity.HasKey(e => e.customer_type_id).HasName("pk_customer_demographics");
 
-            entity.ToTable("customer_demographics", "northwind");
+            entity.ToTable("customer_demographics");
 
             entity.Property(e => e.customer_type_id).HasMaxLength(5);
         });
@@ -102,7 +102,7 @@ public partial class NorthwindContext : DbContext
         {
             entity.HasKey(e => e.employee_id).HasName("pk_employees");
 
-            entity.ToTable("employees", "northwind");
+            entity.ToTable("employees");
 
             entity.Property(e => e.employee_id).ValueGeneratedNever();
             entity.Property(e => e.address).HasMaxLength(60);
@@ -136,7 +136,7 @@ public partial class NorthwindContext : DbContext
                     j =>
                     {
                         j.HasKey("employee_id", "territory_id").HasName("pk_employee_territories");
-                        j.ToTable("employee_territories", "northwind");
+                        j.ToTable("employee_territories");
                         j.IndexerProperty<string>("territory_id").HasMaxLength(20);
                     });
         });
@@ -145,7 +145,7 @@ public partial class NorthwindContext : DbContext
         {
             entity.HasKey(e => e.order_id).HasName("pk_orders");
 
-            entity.ToTable("orders", "northwind");
+            entity.ToTable("orders");
 
             entity.Property(e => e.order_id).ValueGeneratedNever();
             entity.Property(e => e.customer_id).HasMaxLength(5);
@@ -173,7 +173,7 @@ public partial class NorthwindContext : DbContext
         {
             entity.HasKey(e => new { e.order_id, e.product_id }).HasName("pk_order_details");
 
-            entity.ToTable("order_details", "northwind");
+            entity.ToTable("order_details");
 
             entity.HasOne(d => d.order).WithMany(p => p.order_details)
                 .HasForeignKey(d => d.order_id)
@@ -190,7 +190,7 @@ public partial class NorthwindContext : DbContext
         {
             entity.HasKey(e => e.product_id).HasName("pk_products");
 
-            entity.ToTable("products", "northwind");
+            entity.ToTable("products");
 
             entity.Property(e => e.product_id).ValueGeneratedNever();
             entity.Property(e => e.product_name).HasMaxLength(40);
@@ -209,7 +209,7 @@ public partial class NorthwindContext : DbContext
         {
             entity.HasKey(e => e.region_id).HasName("pk_region");
 
-            entity.ToTable("region", "northwind");
+            entity.ToTable("region");
 
             entity.Property(e => e.region_id).ValueGeneratedNever();
             entity.Property(e => e.region_description).HasMaxLength(60);
@@ -219,7 +219,7 @@ public partial class NorthwindContext : DbContext
         {
             entity.HasKey(e => e.shipper_id).HasName("pk_shippers");
 
-            entity.ToTable("shippers", "northwind");
+            entity.ToTable("shippers");
 
             entity.Property(e => e.shipper_id).ValueGeneratedNever();
             entity.Property(e => e.company_name).HasMaxLength(40);
@@ -230,7 +230,7 @@ public partial class NorthwindContext : DbContext
         {
             entity.HasKey(e => e.supplier_id).HasName("pk_suppliers");
 
-            entity.ToTable("suppliers", "northwind");
+            entity.ToTable("suppliers");
 
             entity.Property(e => e.supplier_id).ValueGeneratedNever();
             entity.Property(e => e.address).HasMaxLength(60);
@@ -249,7 +249,7 @@ public partial class NorthwindContext : DbContext
         {
             entity.HasKey(e => e.territory_id).HasName("pk_territories");
 
-            entity.ToTable("territories", "northwind");
+            entity.ToTable("territories");
 
             entity.Property(e => e.territory_id).HasMaxLength(20);
             entity.Property(e => e.territory_description).HasMaxLength(60);
@@ -264,7 +264,7 @@ public partial class NorthwindContext : DbContext
         {
             entity.HasKey(e => e.state_id).HasName("pk_usstates");
 
-            entity.ToTable("us_states", "northwind");
+            entity.ToTable("us_states");
 
             entity.Property(e => e.state_id).ValueGeneratedNever();
             entity.Property(e => e.state_abbr).HasMaxLength(2);

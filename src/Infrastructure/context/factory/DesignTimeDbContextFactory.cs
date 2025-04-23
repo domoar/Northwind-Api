@@ -7,7 +7,7 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<NorthwindC
   public NorthwindContext CreateDbContext(string[] args) {
     var optionsBuilder = new DbContextOptionsBuilder<NorthwindContext>();
 
-    optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Username=postgres;Password=YourSecretPassword;Database=northwind;Ssl Mode=Require;Trust Server Certificate=true"); //TODO from cfg
+    optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Username=postgres;Password=p;Database=northwind;Search Path=northwind;Ssl Mode=Require;Trust Server Certificate=true"); //TODO from cfg
 
     var loggerFactory = LoggerFactory.Create(builder =>
     {

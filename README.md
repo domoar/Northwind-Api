@@ -98,7 +98,7 @@ Use this mode to fix file ownership and permissions. This runs the container wit
 
 ```bash
 cd __extras__/db/postgres/
-docker compose --no-override up --build
+docker compose up --build
 ```
 
 This uses only docker-compose.yml and ignores docker-compose.override.yml.
@@ -136,7 +136,7 @@ Now that setup is complete, start the database securely using TLS and the postgr
 Start the Container in Production Mode
 
 ```bash
-docker compose up -d
+docker compose -f docker-compose.yml up
 ```
 
 This automatically combines docker-compose.yml and docker-compose.override.yml.
@@ -153,8 +153,8 @@ Run SQL Initialization Scripts
 
 ```bash
 psql --dbname=postgres --username=postgres --file=/sql/create-db-northwind.sql
-psql --dbname=buch --username=buch --file=/sql/create-schema-northwind.sql
-psql --dbname=postgres --username=postgres --file=/sql/northwind.sql
+psql --dbname=northwind --username=postgres --file=/sql/create-schema-northwind.sql
+psql --dbname=northwind --username=postgres --file=/sql/northwind.sql
 exit
 ```
 
@@ -169,14 +169,14 @@ Setup Mode:
 Use --no-override to ignore the secure config:
 
 ```bash
-docker compose --no-override up
+docker compose up
 ```
 
 Production Mode:
 Just run:
 
 ```bash
-docker compose up -d
+docker compose -f docker-compose.yml up
 ```
 
 This flexible dual-mode approach allows for secure database operations while preserving the ability to make low-level system changes when necessary.
