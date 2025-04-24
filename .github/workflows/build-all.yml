@@ -1,0 +1,79 @@
+# name: Build, Test & Generate docs
+ 
+# permissions:
+#    contents: write
+ 
+# on:
+#    push:
+#      branches: [ main, develop ]
+#    pull_request:
+#      branches: [ main, develop ]
+ 
+# jobs:
+#    build:
+#      name: Build, Format, Test & Generate UML
+#      runs-on: ubuntu-latest
+ 
+#      steps:
+#        - name: Checkout repository
+#          uses: actions/checkout@v4
+ 
+#        - name: Setup .NET SDK
+#          uses: actions/setup-dotnet@v4
+#          with:
+#            dotnet-version: '8.0.x'
+ 
+#        - name: Restore dependencies
+#          run: dotnet restore __Northwind__.sln
+ 
+#        - name: Restore .NET local tools
+#          run: dotnet tool restore
+ 
+#        - name: Apply code formatting
+#          run: dotnet format __Northwind__.sln
+ 
+#        - name: Check code formatting
+#          run: dotnet format __Northwind__.sln --verify-no-changes
+ 
+#        - name: Build solution
+#          run: dotnet build __Northwind__.sln --no-restore --configuration Release
+ 
+#        - name: Run Unit Tests
+#          run: dotnet test tests/UnitTests/UnitTests.csproj --no-build --configuration Release --logger "trx;LogFileName=unit.trx"
+ 
+#        - name: Run Integration Tests
+#          run: dotnet test tests/IntegrationTests/IntegrationTests.csproj --no-build --configuration Release --logger "trx;LogFileName=integration.trx"
+ 
+#        - name: Generate UML for Controllers, Services & Repositories
+#          shell: bash
+#          run: |
+#            SRC_DIR="."
+#            OUT_DIR="__extras__/docu/plantuml"
+#            mkdir -p "$OUT_DIR"
+ 
+#            find "$SRC_DIR" -type f \( \
+#              -name '*Controller.cs' -o \
+#              -name '*Service.cs'    -o \
+#              -name '*Repository.cs' \
+#            \) | while read -r csfile; do
+#              base=$(basename "$csfile" .cs)
+#              puml_file="$OUT_DIR/${base}.puml"
+#              echo "Generating diagram for $csfile → $puml_file"
+#              dotnet tool run puml-gen "$csfile" "$puml_file"
+#            done
+ 
+#        - name: Commit generated diagrams
+#          if: github.ref == 'refs/heads/main'
+#          uses: stefanzweifel/git-auto-commit-action@v4
+#          with:
+#            commit_message: "chore: update PlantUML diagrams"
+#            file_pattern: '__extras__/docu/plantuml/*.puml'
+#            commit_user_name: github-actions[bot]
+#            commit_user_email: github-actions[bot]@users.noreply.github.com
+#            fail_on_empty_commit: false
+ 
+#        - name: Upload Test Results
+#          uses: actions/upload-artifact@v4
+#          with:
+#            name: test-results
+#            path: '**/TestResults/*.trx'

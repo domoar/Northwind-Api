@@ -1,0 +1,32 @@
+﻿name: Build Solution
+
+on:
+  workflow_run:
+    workflows: [ "Code Formatting" ]
+    types:
+      - completed
+
+jobs:
+  build:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore __Northwind__.sln
+
+      - name: Build solution
+        run: dotnet build __Northwind__.sln --no-restore --configuration Release
+
+      - name: Upload build outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: |
+            **/bin/Release
+            **/obj/Release
