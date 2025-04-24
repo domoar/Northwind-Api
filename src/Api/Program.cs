@@ -12,14 +12,11 @@ using Api;
 
 var builder = WebApplication.CreateBuilder(args);
 
-#region logging
-Log.Logger = new LoggerConfiguration()
-    .ReadFrom.Configuration(builder.Configuration)
-    .Enrich.FromLogContext()
-    .CreateLogger();
-
 builder.Host.UseSerilog();
-#endregion logging
+builder.Services.AddDefaultLogger(builder.Configuration);
+
+builder.Services.AddJaeger(builder.Configuration);
+builder.Services.AddZipkin(builder.Configuration);
 
 builder.Services.AddDefaultProblemDetails();
 builder.Services.AddDefaultApiVersioning();

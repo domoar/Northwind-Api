@@ -1,8 +1,0 @@
-@startuml
-class DefaultRepository {
-    - <<readonly>> _logger : ILogger<DefaultRepository>
-    - <<readonly>> _factory : IDbContextFactory<NorthwindContext>
-    + DefaultRepository(logger:ILogger<DefaultRepository>, factory:IDbContextFactory<NorthwindContext>)
-    + <<async>> FetchSometing(something:int, cancellationToken:CancellationToken) : Task<object[]>
-}
-@enduml
