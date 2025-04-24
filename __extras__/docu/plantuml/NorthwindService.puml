@@ -3,7 +3,7 @@ class NorthwindService {
     - <<readonly>> _logger : ILogger<NorthwindService>
     - <<readonly>> _repository : NorthwindRepository
     + NorthwindService(logger:ILogger<NorthwindService>, repository:NorthwindRepository)
-    + <<async>> FindEmployees(cancellationToken:CancellationToken) : Task<employee[]>
-    + <<async>> FindCustomers(cancellationToken:CancellationToken) : Task<customer[]>
+    + <<async>> FindEmployees(ct:CancellationToken) : Task<employee[]>
+    + <<async>> FindCustomers(ct:CancellationToken) : Task<customer[]>
 }
 @enduml

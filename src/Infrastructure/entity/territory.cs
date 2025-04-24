@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace Infrastructure.Entity;
+public partial class territory {
+  public string territory_id { get; set; } = null!;
 
-namespace Infrastructure.Entities;
+  public string territory_description { get; set; } = null!;
 
-public partial class territory
-{
-    public string territory_id { get; set; } = null!;
+  public short region_id { get; set; }
 
-    public string territory_description { get; set; } = null!;
+  public virtual region region { get; set; } = null!;
 
-    public short region_id { get; set; }
-
-    public virtual region region { get; set; } = null!;
-
-    public virtual ICollection<employee> employees { get; set; } = new List<employee>();
+  public virtual ICollection<employee> employees { get; set; } = new List<employee>();
 }

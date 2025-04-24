@@ -16,7 +16,7 @@ public class ProblemExceptionHandler : IExceptionHandler {
   }
 
   //TODO add additional metadata if required
-  public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken) {
+  public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken ct) {
     if (exception is not ProblemException problemException) {
       return true;
     }

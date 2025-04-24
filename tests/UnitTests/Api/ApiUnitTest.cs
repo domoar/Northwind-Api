@@ -1,7 +1,6 @@
 ﻿using FluentAssertions;
 
 namespace UnitTests.Api;
-
 [Trait("category", "api")]
 public class BaseUnitTest {
   [Fact]

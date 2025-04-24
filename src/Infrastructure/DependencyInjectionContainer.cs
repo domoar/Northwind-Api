@@ -1,16 +1,13 @@
-﻿using Infrastructure.services;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Infrastructure.Context;
+using Infrastructure.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using Infrastructure.context;
-using System;
-using Microsoft.Extensions.Logging;
-using Infrastructure.repository;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace Infrastructure;
-
 public static class DependencyInjectionContainer {
   const int POOL_SIZE = 1024;
 
@@ -41,7 +38,7 @@ public static class DependencyInjectionContainer {
         sqlOptions.EnableRetryOnFailure(
           maxRetryCount: 10,
           maxRetryDelay: TimeSpan.FromSeconds(10),
-          errorCodesToAdd: [ ]
+          errorCodesToAdd: []
         );
       });
 

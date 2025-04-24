@@ -2,8 +2,7 @@
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Infrastructure.services;
-
+namespace Infrastructure.Service;
 public class HealthCheckResilienceService : IHostedService {
   private readonly ILogger<HealthCheckResilienceService>? _logger;
   private readonly HealthCheckService _service;
@@ -16,12 +15,12 @@ public class HealthCheckResilienceService : IHostedService {
   private const int MAX_RETRIES = 10;
   private const int RETRY_DELAY = 5;
 
-  public async Task WaitForHealthyStatusAsync(CancellationToken cancellationToken = default) {
+  public async Task WaitForHealthyStatusAsync(CancellationToken ct = default) {
     var isHealthy = false;
 
     for (int attempt = 1; attempt <= MAX_RETRIES; attempt++) {
       try {
-        var healthReport = await _service.CheckHealthAsync(cancellationToken);
+        var healthReport = await _service.CheckHealthAsync(ct);
 
         if (healthReport.Status == HealthStatus.Healthy) {
           _logger?.LogInformation("Health check passed on attempt {Attempt}.", attempt);
@@ -56,7 +55,7 @@ public class HealthCheckResilienceService : IHostedService {
 
       for (int remainingSeconds = RETRY_DELAY; remainingSeconds > 0; remainingSeconds--) {
         _logger?.LogInformation("Retrying in {RemainingSeconds} second(s)...", remainingSeconds);
-        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+        await Task.Delay(TimeSpan.FromSeconds(1), ct);
       }
     }
 
@@ -67,15 +66,15 @@ public class HealthCheckResilienceService : IHostedService {
     };
   }
 
-  public async Task RunManuallyAsync(CancellationToken cancellationToken = default) {
-    await StartAsync(cancellationToken);
+  public async Task RunManuallyAsync(CancellationToken ct = default) {
+    await StartAsync(ct);
   }
 
-  public async Task StartAsync(CancellationToken cancellationToken) {
-    await WaitForHealthyStatusAsync(cancellationToken);
+  public async Task StartAsync(CancellationToken ct) {
+    await WaitForHealthyStatusAsync(ct);
   }
 
-  public Task StopAsync(CancellationToken cancellationToken) {
+  public Task StopAsync(CancellationToken ct) {
     throw new NotImplementedException();
   }
 }

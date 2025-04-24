@@ -1,8 +1,7 @@
-﻿using FluentAssertions;
-using System.Net;
+﻿using System.Net;
+using FluentAssertions;
 
 namespace IntegrationTests;
-
 public class BaseIntegrationTest : IClassFixture<NorthwindApiFactory> {
 
   private readonly HttpClient _client;

@@ -5,10 +5,10 @@ class HealthCheckResilienceService {
     + HealthCheckResilienceService(logger:ILogger<HealthCheckResilienceService>?, service:HealthCheckService)
     - <<const>> MAX_RETRIES : int = 10
     - <<const>> RETRY_DELAY : int = 5
-    + <<async>> WaitForHealthyStatusAsync(cancellationToken:CancellationToken) : Task
-    + <<async>> RunManuallyAsync(cancellationToken:CancellationToken) : Task
-    + <<async>> StartAsync(cancellationToken:CancellationToken) : Task
-    + StopAsync(cancellationToken:CancellationToken) : Task
+    + <<async>> WaitForHealthyStatusAsync(ct:CancellationToken) : Task
+    + <<async>> RunManuallyAsync(ct:CancellationToken) : Task
+    + <<async>> StartAsync(ct:CancellationToken) : Task
+    + StopAsync(ct:CancellationToken) : Task
 }
 IHostedService <|-- HealthCheckResilienceService
 @enduml

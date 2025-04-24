@@ -3,8 +3,8 @@ class NorthwindController {
     - <<readonly>> _logger : ILogger<NorthwindController>
     - <<readonly>> _service : NorthwindService
     + NorthwindController(logger:ILogger<NorthwindController>, service:NorthwindService)
-    + <<async>> GetEmployees(cancellationToken:CancellationToken) : Task<IActionResult>
-    + <<async>> GetCustomers(cancellationToken:CancellationToken) : Task<IActionResult>
+    + <<async>> GetEmployees(ct:CancellationToken) : Task<IActionResult>
+    + <<async>> GetCustomers(ct:CancellationToken) : Task<IActionResult>
 }
 ControllerBase <|-- NorthwindController
 @enduml

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Infrastructure.Entities;
-using Infrastructure.repository;
+﻿using Infrastructure.Entity;
+using Infrastructure.Repository;
 using Microsoft.Extensions.Logging;
 
-namespace Application.service;
+namespace Application.Service;
 public class NorthwindService {
 
   private readonly ILogger<NorthwindService> _logger;
@@ -18,13 +13,24 @@ public class NorthwindService {
     _repository = repository;
   }
 
-  public async Task<employee[]> FindEmployees(CancellationToken cancellationToken) {
+  public async Task<employee[]> FindEmployees(CancellationToken ct) {
     _logger.LogTrace("");
-    return await _repository.FetchEmployees(cancellationToken);
+    return await _repository.FetchEmployees(ct);
   }
 
-  public async Task<customer[]> FindCustomers(CancellationToken cancellationToken) {
+  public async Task<customer[]> FindCustomers(CancellationToken ct) {
     _logger.LogTrace("");
-    return await _repository.FetchCustomers(cancellationToken);
+    return await _repository.FetchCustomers(ct);
+  }
+
+  
+  public async Task<employee?> FindEmployeeById(short id, CancellationToken ct) {
+    _logger.LogTrace("");
+    return await _repository.FetchEmployeeById(id, ct);
+  }
+
+  public async Task<customer?> FindCustomerById(string id, CancellationToken ct) {
+    _logger.LogTrace("");
+    return await _repository.FetchCustomerById(id, ct);
   }
 }

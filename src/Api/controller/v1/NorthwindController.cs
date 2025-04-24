@@ -1,4 +1,5 @@
 ﻿using Application.Service;
+using Infrastructure.Entity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controller.v1;
@@ -17,32 +18,56 @@ public class NorthwindController : ControllerBase {
   }
 
   [HttpGet]
-  public async Task<IActionResult> GetEmployees(CancellationToken cancellationToken) {
-    var result = await _service.FindEmployees(cancellationToken);
+  [ProducesResponseType(typeof(employee[]), StatusCodes.Status200OK)]
+  public async Task<IActionResult> GetEmployees(CancellationToken ct) {
+    var result = await _service.FindEmployees(ct);
     _logger.LogInformation("Found Employees: {@Result}", result);
     return Ok(result);
   }
 
   [HttpGet]
-  public async Task<IActionResult> GetCustomers(CancellationToken cancellationToken) {
-    var result = await _service.FindCustomers(cancellationToken);
+  [ProducesResponseType(typeof(customer[]), StatusCodes.Status200OK)]
+  public async Task<IActionResult> GetCustomers(CancellationToken ct) {
+    var result = await _service.FindCustomers(ct);
     _logger.LogInformation("Found Customers: {@Result}", result);
     return Ok(result);
   }
 
   [HttpGet]
-  public async Task<IActionResult> GetCustomer(string name, CancellationToken cancellationToken) {
-    var result = new object[0];
-    await Task.Delay(1);
-    _logger.LogInformation("Found Customer: {@Result}", result);
+  [ProducesResponseType(typeof(employee), StatusCodes.Status200OK)]
+  [ProducesResponseType(StatusCodes.Status404NotFound)]
+  public async Task<IActionResult> GetEmployee(short employeeId, CancellationToken ct) {
+    var result = await _service.FindEmployeeById(employeeId, ct);
+ if (result is null)
+    {
+        _logger.LogInformation("Customer {CustomerId} not found", employeeId);
+
+        return NotFound(new ProblemDetails
+        {
+            Title  = "Employee not found",
+            Status = StatusCodes.Status404NotFound,
+            Detail = $"Not employee with id „{employeeId}“ exists"
+        });
+    }
     return Ok(result);
   }
 
   [HttpGet]
-  public async Task<IActionResult> GetEmployee(string name, CancellationToken cancellationToken) {
-    var result = new object[0];
-    await Task.Delay(1);
-    _logger.LogInformation("Found Employee: {@Result}", result);
+  [ProducesResponseType(typeof(customer), StatusCodes.Status200OK)]
+  [ProducesResponseType(StatusCodes.Status404NotFound)]
+  public async Task<IActionResult> GetCustomer(string customerId, CancellationToken ct) {
+    var result = await _service.FindCustomerById(customerId, ct);
+    if (result is null)
+    {
+        _logger.LogInformation("Customer {CustomerId} not found", customerId);
+
+        return NotFound(new ProblemDetails
+        {
+            Title  = "Customer not found",
+            Status = StatusCodes.Status404NotFound,
+            Detail = $"Not customer with id „{customerId}“ exists"
+        });
+    }
     return Ok(result);
   }
 }
