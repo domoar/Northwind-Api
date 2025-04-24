@@ -10,6 +10,16 @@ To debug or run the api locally use
 dotnet watch run --launch-profile "https"
 ```
 
+e.g.
+```bash
+curl -X 'GET' \
+  'https://localhost:7104/api/Northwind/GetEmployee?employeeId=1' \
+  -H 'accept: application/json'
+```
+### Swagger
+
+Original source: [Swagger UI - localhost DBG](https://localhost:7104/swagger/index.html)
+
 ## Testing
 
 All Tests can be run by chaning the working directory of the unit or integration tests and then using the command:
