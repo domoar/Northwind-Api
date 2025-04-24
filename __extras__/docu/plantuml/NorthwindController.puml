@@ -5,6 +5,8 @@ class NorthwindController {
     + NorthwindController(logger:ILogger<NorthwindController>, service:NorthwindService)
     + <<async>> GetEmployees(cancellationToken:CancellationToken) : Task<IActionResult>
     + <<async>> GetCustomers(cancellationToken:CancellationToken) : Task<IActionResult>
+    + <<async>> GetCustomer(name:string, cancellationToken:CancellationToken) : Task<IActionResult>
+    + <<async>> GetEmployee(name:string, cancellationToken:CancellationToken) : Task<IActionResult>
 }
 ControllerBase <|-- NorthwindController
 @enduml
