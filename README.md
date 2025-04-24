@@ -2,8 +2,7 @@
 
 [![Build, Test & Generate docs](https://github.com/domoar/Northwind-Api/actions/workflows/build.yaml/badge.svg)](https://github.com/domoar/Northwind-Api/actions/workflows/build.yaml)
 
-This project was created using the template from [Clean Architecture Template](https://github.com/domoar/CleanArchitectureTemplate). And will be redone once github templates allows variable names in templates. [Discussion](https://github.com/orgs/community/discussions/5336)
-
+This project was created using the template from [Clean Architecture Template](https://github.com/domoar/CleanArchitectureTemplate), and will be redone once github templates allows variable names in templates. [Discussion](https://github.com/orgs/community/discussions/5336)
 
 ## ToC
 
