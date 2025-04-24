@@ -1,5 +1,7 @@
 # Northwind
 
+[![Build, Test & Generate docs](https://github.com/domoar/Northwind-Api/actions/workflows/build.yaml/badge.svg)](https://github.com/domoar/Northwind-Api/actions/workflows/build.yaml)
+
 ## ToC
 
  1. [Api](#api)
@@ -7,8 +9,6 @@
  3. [Database](#postgresql-database-setup-with-docker-compose)
  4. [Migration](#migration)
  5. [Architecture](#architecture)
-
-[![Build, Test & Generate docs](https://github.com/domoar/Northwind-Api/actions/workflows/build.yaml/badge.svg)](https://github.com/domoar/Northwind-Api/actions/workflows/build.yaml)
 
 ## Api
 
