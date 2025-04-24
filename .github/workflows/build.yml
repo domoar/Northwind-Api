@@ -17,13 +17,13 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
-      - run: dotnet tool restore
+      - run: dotnet tool restore --verbosity diagnostic
 
       - name: Apply code formatting
-        run: dotnet format __Northwind__.sln
+        run: dotnet format __Northwind__.sln --verbosity diagnostic
 
       - name: Check code formatting
-        run: dotnet format __Northwind__.sln --verify-no-changes
+        run: dotnet format __Northwind__.sln --verify-no-changes --verbosity diagnostic
 
   build:
     name: Build Solution
@@ -40,7 +40,7 @@ jobs:
         run: dotnet restore __Northwind__.sln
 
       - name: Build solution
-        run: dotnet build __Northwind__.sln --no-restore --configuration Release
+        run: dotnet build __Northwind__.sln --no-restore --configuration Release --verbosity diagnostic
 
       - name: Upload build outputs
         uses: actions/upload-artifact@v4
@@ -62,7 +62,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: build-artifacts
-      - run: dotnet test tests/UnitTests/UnitTests.csproj --no-build --configuration Release --logger "trx;LogFileName=unit.trx"
+      - run: dotnet test tests/UnitTests/UnitTests.csproj --no-build --configuration Release --logger "trx;LogFileName=unit.trx" --verbosity diagnostic
       - uses: actions/upload-artifact@v4
         with:
           name: unit-test-results
@@ -80,7 +80,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: build-artifacts
-      - run: dotnet test tests/IntegrationTests/IntegrationTests.csproj --no-build --configuration Release --logger "trx;LogFileName=integration.trx"
+      - run: dotnet test tests/IntegrationTests/IntegrationTests.csproj --no-build --configuration Release --logger "trx;LogFileName=integration.trx" --verbosity diagnostic
       - uses: actions/upload-artifact@v4
         with:
           name: integration-test-results

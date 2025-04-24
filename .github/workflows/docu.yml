@@ -1,5 +1,8 @@
 ﻿name: Generate documentation
 
+permissions:
+   contents: write
+
 on:
   workflow_run:
     workflows: [ "CI - Build, Format, Test" ]
