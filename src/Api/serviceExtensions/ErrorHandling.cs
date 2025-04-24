@@ -1,8 +1,7 @@
 ﻿using Api.middleware;
 using Microsoft.AspNetCore.Http.Features;
 
-namespace Api.DependencyInjection;
-
+namespace Api.serviceExtensions;
 public static class ProblemDetailsServiceCollectionExtensions {
   //TODO use Hellang
   public static IServiceCollection AddDefaultProblemDetails(this IServiceCollection services) {

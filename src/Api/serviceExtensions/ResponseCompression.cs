@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.ResponseCompression;
-using System.IO.Compression;
+﻿using System.IO.Compression;
+using Microsoft.AspNetCore.ResponseCompression;
 
-namespace Api.DependencyInjection;
-
+namespace Api.serviceExtensions;
 public static class ResponseCompressionServiceCollectionExtensions {
   public static IServiceCollection AddDefaultResponseCompression(this IServiceCollection services) {
     services.AddResponseCompression(options => {

@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Net;
+﻿using System.Net;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Api.middleware;
-
 public class GlobalExceptionHandler(RequestDelegate next, ILogger<GlobalExceptionHandler> logger) {
   private readonly RequestDelegate _next = next;
   private readonly ILogger<GlobalExceptionHandler> _logger = logger;

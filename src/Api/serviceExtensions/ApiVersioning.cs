@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 
-namespace Api.DependencyInjection;
-
+namespace Api.serviceExtensions;
 public static class ApiVersioningServiceCollectionExtensions {
   public static IServiceCollection AddDefaultApiVersioning(this IServiceCollection services) {
     services.AddApiVersioning(options => {

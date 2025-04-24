@@ -1,12 +1,9 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Net;
-using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using Figgle;
 
 namespace Api;
-
 [ExcludeFromCodeCoverage(Justification = "Banner Class")]
 [GenerateFiggleText("FIGLETSTRING", "doom", "Northwind")]
 public sealed partial class Banner : IDisposable {

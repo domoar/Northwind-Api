@@ -1,14 +1,10 @@
-﻿using Application;
-using Infrastructure;
-using Domain;
-using Api.DependencyInjection;
+﻿using Api;
 using Api.middleware;
-using Microsoft.AspNetCore.ResponseCompression;
+using Api.serviceExtensions;
+using Application;
+using Domain;
+using Infrastructure;
 using Serilog;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-using HealthChecks.UI.Client;
-using Api;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -63,8 +59,7 @@ app.UseResponseCompression();
 
 if (app.Environment.IsDevelopment() || app.Environment.IsProduction()) {
   app.UseSwagger();
-  app.UseSwaggerUI(options =>
-  {
+  app.UseSwaggerUI(options => {
     options.SwaggerEndpoint("/swagger/v1/swagger.json", "Cleanarchitecture Template V1");
     options.DefaultModelRendering(Swashbuckle.AspNetCore.SwaggerUI.ModelRendering.Model);
     options.ConfigObject.AdditionalItems["syntaxHighlight"] = false;
