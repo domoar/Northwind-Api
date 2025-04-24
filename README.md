@@ -11,13 +11,17 @@ dotnet watch run --launch-profile "https"
 ```
 
 ### Curl
+
 e.g.
+
 ```bash
 curl -X 'GET' \
   'https://localhost:7104/api/Northwind/GetEmployee?employeeId=1' \
   -H 'accept: application/json'
 ```
+
 ### Swagger
+
 [Swagger UI - localhost DBG](https://localhost:7104/swagger/index.html)
 
 ## Testing
