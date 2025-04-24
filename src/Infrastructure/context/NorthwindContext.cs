@@ -10,29 +10,53 @@ public partial class NorthwindContext : DbContext {
     _logger = logger;
   }
 
+#pragma warning disable IDE1006 // Naming Styles
   public virtual DbSet<category> categories { get; set; }
+#pragma warning restore IDE1006 // Naming Styles
 
+#pragma warning disable IDE1006 // Naming Styles
   public virtual DbSet<customer> customers { get; set; }
+#pragma warning restore IDE1006 // Naming Styles
 
+#pragma warning disable IDE1006 // Naming Styles
   public virtual DbSet<customer_demographic> customer_demographics { get; set; }
+#pragma warning restore IDE1006 // Naming Styles
 
+#pragma warning disable IDE1006 // Naming Styles
   public virtual DbSet<employee> employees { get; set; }
+#pragma warning restore IDE1006 // Naming Styles
 
+#pragma warning disable IDE1006 // Naming Styles
   public virtual DbSet<order> orders { get; set; }
+#pragma warning restore IDE1006 // Naming Styles
 
+#pragma warning disable IDE1006 // Naming Styles
   public virtual DbSet<order_detail> order_details { get; set; }
+#pragma warning restore IDE1006 // Naming Styles
 
+#pragma warning disable IDE1006 // Naming Styles
   public virtual DbSet<product> products { get; set; }
+#pragma warning restore IDE1006 // Naming Styles
 
+#pragma warning disable IDE1006 // Naming Styles
   public virtual DbSet<region> regions { get; set; }
+#pragma warning restore IDE1006 // Naming Styles
 
+#pragma warning disable IDE1006 // Naming Styles
   public virtual DbSet<shipper> shippers { get; set; }
+#pragma warning restore IDE1006 // Naming Styles
 
+#pragma warning disable IDE1006 // Naming Styles
   public virtual DbSet<supplier> suppliers { get; set; }
+#pragma warning restore IDE1006 // Naming Styles
 
+#pragma warning disable IDE1006 // Naming Styles
   public virtual DbSet<territory> territories { get; set; }
+#pragma warning restore IDE1006 // Naming Styles
 
+#pragma warning disable IDE1006 // Naming Styles
   public virtual DbSet<us_state> us_states { get; set; }
+#pragma warning restore IDE1006 // Naming Styles
 
   protected override void OnModelCreating(ModelBuilder modelBuilder) {
     modelBuilder.Entity<category>(entity => {

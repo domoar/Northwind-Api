@@ -1,5 +1,13 @@
 # Northwind
 
+## ToC
+
+ 1. [Api](#api)
+ 2. [Docker](#dockerfile-and-dockercompose-for-the-project)
+ 3. [Database](#postgresql-database-setup-with-docker-compose)
+ 4. [Migration](#migration)
+ 5. [Architecture](#architecture)
+
 [![Build, Test & Generate docs](https://github.com/domoar/Northwind-Api/actions/workflows/build.yaml/badge.svg)](https://github.com/domoar/Northwind-Api/actions/workflows/build.yaml)
 
 ## Api
@@ -23,6 +31,36 @@ curl -X 'GET' \
 ### Swagger
 
 [Swagger UI - localhost DBG](https://localhost:7104/swagger/index.html)
+
+## DockerFile and DockerCompose for the project
+
+There is a Dockerfile and a docker-compose.yml in the root directory.
+The compose file starts five services:
+
+- api – ASP.NET Core application.
+- db – PostgreSQL 17 with SSL.
+- pgadmin – Web UI for Postgres.
+- seq – Centralised structured log server.
+- jaeger – Distributed tracing system.
+
+Start / Shutdown these services with
+
+```bash
+docker compose up -d 
+docker compose down
+```
+
+### Seq for Logging
+
+Seq captures and can query structures logs.
+
+#### How to setup Seq
+
+### Jaeger for Tracing
+
+Jaeger displays distributed traces.
+
+#### How to setup Jaeger
 
 ## Testing
 
@@ -218,3 +256,5 @@ dotnet ef dbcontext scaffold \
   --no-onconfiguring \
   --force
 ```
+
+## Architecture
