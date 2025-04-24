@@ -1,6 +1,8 @@
 # Northwind
 
-[![Build, Test & Generate docs](https://github.com/domoar/Northwind-Api/actions/workflows/build.yaml/badge.svg)](https://github.com/domoar/Northwind-Api/actions/workflows/build.yaml)
+[![CI - Build, Format, Test](https://github.com/domoar/Northwind-Api/actions/workflows/build.yml/badge.svg)](https://github.com/domoar/Northwind-Api/actions/workflows/build.yml)
+
+[![Generate documentation](https://github.com/domoar/Northwind-Api/actions/workflows/docu.yml/badge.svg)](https://github.com/domoar/Northwind-Api/actions/workflows/docu.yml)
 
 This project was created using the template from [Clean Architecture Template](https://github.com/domoar/CleanArchitectureTemplate), and will be redone once github templates allows variable names in templates. [Discussion](https://github.com/orgs/community/discussions/5336)
 
