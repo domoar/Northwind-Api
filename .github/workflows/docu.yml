@@ -1,13 +1,13 @@
-﻿name: Generate UML Diagrams
+﻿name: Generate documentation
 
 on:
   workflow_run:
-    workflows: [ "Code Formatting", "Build Solution" ]
+    workflows: [ "CI - Build, Format, Test" ]
     types:
       - completed
 
 jobs:
-  uml-docs:
+  generate-docs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
