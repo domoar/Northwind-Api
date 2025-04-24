@@ -10,6 +10,7 @@ To debug or run the api locally use
 dotnet watch run --launch-profile "https"
 ```
 
+### Curl
 e.g.
 ```bash
 curl -X 'GET' \
