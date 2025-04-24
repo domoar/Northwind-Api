@@ -3,7 +3,7 @@ using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
 
 
-namespace Api.serviceExtensions;
+namespace Api.ServiceExtensions;
 public static class OpenTelemetryCollectionExtensions {
   public static IServiceCollection AddJaeger(this IServiceCollection services, IConfiguration configuration) {
     var port = configuration.GetValue("Ports:JAEGER_PORT", "4137");

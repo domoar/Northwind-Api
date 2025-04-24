@@ -1,6 +1,6 @@
-﻿using Api.dev;
+﻿using Api.Dev;
 
-namespace Api.serviceExtensions;
+namespace Api.ServiceExtensions;
 public static class MetricsCollectionsExtensions {
   public static IServiceCollection AddMetrics(this IServiceCollection services) {
     services.AddSingleton<NorthiwndMetrics>();

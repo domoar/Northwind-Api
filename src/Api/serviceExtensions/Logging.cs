@@ -1,7 +1,7 @@
 ﻿using Serilog;
 using Serilog.Sinks.OpenTelemetry;
 
-namespace Api.serviceExtensions;
+namespace Api.ServiceExtensions;
 public static class LoggingCollectionExtensions {
   public static IServiceCollection AddLoggerWithSeq(this IServiceCollection services, IConfiguration configuration) {
 

@@ -1,7 +1,7 @@
 ﻿using System.IO.Compression;
 using Microsoft.AspNetCore.ResponseCompression;
 
-namespace Api.serviceExtensions;
+namespace Api.ServiceExtensions;
 public static class ResponseCompressionServiceCollectionExtensions {
   public static IServiceCollection AddDefaultResponseCompression(this IServiceCollection services) {
     services.AddResponseCompression(options => {

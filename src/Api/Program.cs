@@ -1,6 +1,6 @@
 ﻿using Api;
-using Api.middleware;
-using Api.serviceExtensions;
+using Api.Middleware;
+using Api.ServiceExtensions;
 using Application;
 using Domain;
 using Infrastructure;

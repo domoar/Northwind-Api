@@ -1,7 +1,7 @@
-﻿using Api.middleware;
+﻿using Api.Middleware;
 using Microsoft.AspNetCore.Http.Features;
 
-namespace Api.serviceExtensions;
+namespace Api.ServiceExtensions;
 public static class ProblemDetailsServiceCollectionExtensions {
   //TODO use Hellang
   public static IServiceCollection AddDefaultProblemDetails(this IServiceCollection services) {

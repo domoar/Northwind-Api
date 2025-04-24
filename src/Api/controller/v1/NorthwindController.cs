@@ -1,7 +1,8 @@
-﻿using Application.service;
+﻿using Application.Service;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Api.controller.v1;
+namespace Api.Controller.v1;
+
 [ApiController]
 [Route("api/[controller]/[action]")]
 [ApiVersion("1")]

@@ -2,7 +2,7 @@
 using System.Diagnostics.Metrics;
 
 
-namespace Api.dev;
+namespace Api.Dev;
 [ExcludeFromCodeCoverage(Justification = "Development")]
 public class NorthiwndMetrics {
   public const string MeterName = "Northwind-Api";
