@@ -17,8 +17,7 @@ curl -X 'GET' \
   -H 'accept: application/json'
 ```
 ### Swagger
-
-Original source: [Swagger UI - localhost DBG](https://localhost:7104/swagger/index.html)
+[Swagger UI - localhost DBG](https://localhost:7104/swagger/index.html)
 
 ## Testing
 
