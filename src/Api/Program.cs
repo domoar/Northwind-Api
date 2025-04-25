@@ -60,7 +60,7 @@ app.UseResponseCompression();
 if (app.Environment.IsDevelopment() || app.Environment.IsProduction()) {
   app.UseSwagger();
   app.UseSwaggerUI(options => {
-    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Cleanarchitecture Template V1");
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Northwind Api V1");
     options.DefaultModelRendering(Swashbuckle.AspNetCore.SwaggerUI.ModelRendering.Model);
     options.ConfigObject.AdditionalItems["syntaxHighlight"] = false;
     options.RoutePrefix = "swagger";

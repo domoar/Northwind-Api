@@ -56,4 +56,11 @@
 		</None>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="..\..\__extras__\docu\plantuml\HealthCheckResilienceService.puml" />
+	  <None Remove="..\..\__extras__\docu\plantuml\NorthwindController.puml" />
+	  <None Remove="..\..\__extras__\docu\plantuml\NorthwindRepository.puml" />
+	  <None Remove="..\..\__extras__\docu\plantuml\NorthwindService.puml" />
+	</ItemGroup>
+
 </Project>
