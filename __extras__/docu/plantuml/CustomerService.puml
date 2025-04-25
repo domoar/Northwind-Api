@@ -1,0 +1,9 @@
+@startuml
+class CustomerService {
+    - <<readonly>> _logger : ILogger<CustomerService>
+    - <<readonly>> _repository : NorthwindRepository
+    + CustomerService(logger:ILogger<CustomerService>, repository:NorthwindRepository)
+    + <<async>> FindById(id:string, ct:CancellationToken) : Task<customer?>
+    + <<async>> FindAll(ct:CancellationToken) : Task<customer[]>
+}
+@enduml

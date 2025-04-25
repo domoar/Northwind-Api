@@ -7,5 +7,10 @@ class NorthwindRepository {
     + <<async>> FetchCustomers(ct:CancellationToken) : Task<customer[]>
     + <<async>> FetchEmployeeById(id:short, ct:CancellationToken) : Task<employee?>
     + <<async>> FetchCustomerById(id:string, ct:CancellationToken) : Task<customer?>
+    + <<async>> GetById(id:int, ct:CancellationToken) : Task<T?>
+    + <<async>> Add(entity:T, ct:CancellationToken) : Task
+    + <<async>> Update(entity:T, ct:CancellationToken) : Task
+    + <<async>> Delete(entity:T, ct:CancellationToken) : Task
+    + <<async>> SaveChangesAsync(ct:CancellationToken) : Task
 }
 @enduml
