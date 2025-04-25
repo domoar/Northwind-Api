@@ -44,4 +44,29 @@ public class NorthwindRepository {
 
       return result;
   }
+
+  public async Task<T?> GetById<T>(int id, CancellationToken ct) where T : class {
+    var ctx = await _factory.CreateDbContextAsync(ct);
+    return await ctx.Set<T>().FindAsync([id], cancellationToken: ct);
+  }
+
+  public async Task Add<T>(T entity, CancellationToken ct) where T : class {
+    var ctx = await _factory.CreateDbContextAsync(ct);
+    await ctx.Set<T>().AddAsync(entity, ct);
+  }
+
+  public async Task Update<T>(T entity, CancellationToken ct) where T : class {
+    var ctx = await _factory.CreateDbContextAsync(ct);
+    ctx.Set<T>().Update(entity);
+  }
+
+  public async Task Delete<T>(T entity, CancellationToken ct) where T : class {
+    var ctx = await _factory.CreateDbContextAsync(ct);
+    ctx.Set<T>().Remove(entity);
+  }
+
+  public async Task SaveChangesAsync(CancellationToken ct) {
+    var ctx = await _factory.CreateDbContextAsync(ct);
+    await ctx.SaveChangesAsync(ct);
+  }
 }

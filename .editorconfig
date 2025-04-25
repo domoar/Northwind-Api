@@ -5,6 +5,8 @@ indent_style = space
 tab_width = 4
 indent_size = 2
 max_line_length = 120
+insert_final_newline = true
+trim_trailing_whitespace = true
 dotnet_diagnostic.IDE0059.severity = warning
 end_of_line = lf
 charset = utf-8-bom
@@ -23,3 +25,11 @@ dotnet_diagnostic.IDE0290.severity = warning
 
 # Order using statements
 dotnet_sort_system_directives_first = true
+
+# JSON files
+[*.json]
+indent_size = 2
+
+# Markdown
+[*.md]
+trim_trailing_whitespace = false
