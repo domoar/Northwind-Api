@@ -1,5 +1,8 @@
 ﻿name: CI - Build, Format, Test
 
+permissions:
+   contents: write
+
 on:
   push:
     branches: [ main, develop ]
