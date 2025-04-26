@@ -1,4 +1,4 @@
-@startuml
+@startuml CustomerControllers
 class CustomerController {
     - <<readonly>> _logger : ILogger<CustomerController>
     - <<readonly>> _service : CustomerService

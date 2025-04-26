@@ -1,4 +1,4 @@
-@startuml
+@startuml HealthCheckResilienceService
 class HealthCheckResilienceService {
     - <<readonly>> _logger : ILogger<HealthCheckResilienceService>?
     - <<readonly>> _service : HealthCheckService

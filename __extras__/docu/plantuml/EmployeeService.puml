@@ -1,4 +1,4 @@
-@startuml
+@startuml EmployeeService
 class EmployeeService {
     - <<readonly>> _logger : ILogger<EmployeeService>
     - <<readonly>> _repository : NorthwindRepository

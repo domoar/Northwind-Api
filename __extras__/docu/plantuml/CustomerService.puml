@@ -1,4 +1,4 @@
-@startuml
+@startuml CustomerService
 class CustomerService {
     - <<readonly>> _logger : ILogger<CustomerService>
     - <<readonly>> _repository : NorthwindRepository

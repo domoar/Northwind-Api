@@ -1,4 +1,4 @@
-@startuml
+@startuml NorthwindRepository
 class NorthwindRepository {
     - <<readonly>> _logger : ILogger<NorthwindRepository>
     - <<readonly>> _factory : IDbContextFactory<NorthwindContext>

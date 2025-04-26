@@ -1,4 +1,4 @@
-@startuml
+@startuml NorthwindController
 class NorthwindController {
     - <<readonly>> _logger : ILogger<NorthwindController>
     - <<readonly>> _service : NorthwindService
