@@ -1,4 +1,4 @@
-﻿﻿name: Generate documentation
+﻿﻿﻿name: Generate documentation
 
 permissions:
    contents: write
@@ -47,4 +47,4 @@ jobs:
           file_pattern: '__extras__/docu/plantuml/*.puml'
           commit_user_name: github-actions[bot]
           commit_user_email: github-actions[bot]@users.noreply.github.com
-          skip_dirty_check: false
+          fail_on_empty_commit: false
