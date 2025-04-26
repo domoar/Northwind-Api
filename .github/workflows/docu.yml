@@ -1,7 +1,7 @@
 ﻿name: Generate documentation
 
 permissions:
-   contents: write
+  contents: write
 
 on:
   workflow_run:
@@ -25,21 +25,27 @@ jobs:
       - name: Generate UML for Controllers, Services & Repositories
         shell: bash
         run: |
-          SRC_DIR="."
+          SRC_DIR="./src"  # your real source folder
           OUT_DIR="__extras__/docu/plantuml"
           mkdir -p "$OUT_DIR"
-          find "$SRC_DIR" -type f \( \
-            -name '*Controller.cs' -o \
-            -name '*Service.cs' -o \
-            -name '*Repository.cs' \
-          \) | while IFS= read -r csfile; do
-            base=$(basename "$csfile" .cs)
-            puml_file="$OUT_DIR/${base}.puml"
-            echo "Generating diagram for $csfile → $puml_file"
-            echo "@startuml $base" > "$puml_file"
-            dotnet tool run puml-gen --output-stdout --no-scope "$csfile" >> "$puml_file"
-            echo "@enduml" >> "$puml_file"
-          done
+          
+          echo "Generating full diagram from $SRC_DIR"
+          TEMP_FILE="$OUT_DIR/full.puml"
+          OUTPUT_FILE="$OUT_DIR/FilteredClasses.puml"
+          
+          # 1. Generate full class diagram
+          echo "@startuml" > "$TEMP_FILE"
+          dotnet tool run puml-gen --output-stdout --no-scope "$SRC_DIR" >> "$TEMP_FILE"
+          echo "@enduml" >> "$TEMP_FILE"
+          
+          # 2. Filter classes
+          echo "@startuml" > "$OUTPUT_FILE"
+          # keep class declarations and relationships involving Controller, Service, Repository
+          grep -E 'class .*Controller|class .*Service|class .*Repository|<\|--|--\|' "$TEMP_FILE" >> "$OUTPUT_FILE"
+          echo "@enduml" >> "$OUTPUT_FILE"
+          
+          # 3. Clean up
+          rm "$TEMP_FILE"
 
       - name: Commit generated diagrams
         if: github.ref == 'refs/heads/main'
@@ -49,4 +55,4 @@ jobs:
           file_pattern: '__extras__/docu/plantuml/*.puml'
           commit_user_name: github-actions[bot]
           commit_user_email: github-actions[bot]@users.noreply.github.com
-          fail_on_empty_commit: false
+          skip_dirty_check: true
