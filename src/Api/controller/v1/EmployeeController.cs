@@ -30,16 +30,16 @@ public class EmployeeController : ControllerBase {
   [HttpGet]
   [ProducesResponseType(typeof(employee), StatusCodes.Status200OK)]
   [ProducesResponseType(StatusCodes.Status404NotFound)]
-  public async Task<IActionResult> GetEmployee(short employeeId, CancellationToken ct){
+  public async Task<IActionResult> GetEmployee(short employeeId, CancellationToken ct) {
     var result = await _service.FindById(employeeId, ct);
     if (result is null) {
       _logger.LogInformation("Customer {CustomerId} not found", employeeId);
 
       return NotFound(new ProblemDetails {
-          Title = "Employee not found",
-          Status = StatusCodes.Status404NotFound,
-          Detail = $"Not employee with id „{employeeId}“ exists",
-        });
+        Title = "Employee not found",
+        Status = StatusCodes.Status404NotFound,
+        Detail = $"Not employee with id „{employeeId}“ exists",
+      });
     }
     return Ok(result);
   }

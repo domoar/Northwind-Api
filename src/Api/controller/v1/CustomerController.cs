@@ -14,14 +14,16 @@ public class CustomerController : ControllerBase {
   private readonly ILogger<CustomerController> _logger;
   private readonly CustomerService _service;
 
-  public CustomerController(ILogger<CustomerController> logger, CustomerService service) {
+  public CustomerController(ILogger<CustomerController> logger, CustomerService service)
+  {
     _logger = logger;
     _service = service;
   }
 
   [HttpGet]
   [ProducesResponseType(typeof(customer[]), StatusCodes.Status200OK)]
-  public async Task<IActionResult> GetCustomers(CancellationToken ct) {
+  public async Task<IActionResult> GetCustomers(CancellationToken ct) 
+  {
     var results = await _service.FindAll(ct);
     _logger.LogResults(typeof(employee), results);
     return Ok(results);
@@ -35,13 +37,13 @@ public class CustomerController : ControllerBase {
     if (result is null) {
       _logger.LogInformation("Customer {CustomerId} not found", customerId);
       return NotFound(new ProblemDetails {
-          Title = "Customer not found",
-          Status = StatusCodes.Status404NotFound,
-          Detail = $"Not customer with id „{customerId}“ exists",
-        });
+        Title = "Customer not found",
+        Status = StatusCodes.Status404NotFound,
+        Detail = $"Not customer with id „{customerId}“ exists",
+      });
     }
     return Ok(result);
   }
 
-  
+
 }

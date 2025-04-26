@@ -27,14 +27,14 @@ public class NorthwindRepository {
     return result;
   }
 
-    public async Task<employee?> FetchEmployeeById(short id, CancellationToken ct) {
-      var ctx = await _factory.CreateDbContextAsync(ct);
-      var result = await ctx.employees
-        .AsNoTracking()
-        .SingleOrDefaultAsync(e => e.employee_id == id, ct);
+  public async Task<employee?> FetchEmployeeById(short id, CancellationToken ct) {
+    var ctx = await _factory.CreateDbContextAsync(ct);
+    var result = await ctx.employees
+      .AsNoTracking()
+      .SingleOrDefaultAsync(e => e.employee_id == id, ct);
 
-      return result;
-    }
+    return result;
+  }
 
   public async Task<customer?> FetchCustomerById(string id, CancellationToken ct) {
     var ctx = await _factory.CreateDbContextAsync(ct);
@@ -42,7 +42,7 @@ public class NorthwindRepository {
       .AsNoTracking()
       .SingleOrDefaultAsync(c => c.customer_id == id, ct);
 
-      return result;
+    return result;
   }
 
   public async Task<T?> GetById<T>(int id, CancellationToken ct) where T : class {
