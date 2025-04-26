@@ -1,4 +1,4 @@
-@startuml ProductController
+@startuml
 class ProductController {
     - <<readonly>> _logger : ILogger<ProductController>
     - <<readonly>> _service : ProductService

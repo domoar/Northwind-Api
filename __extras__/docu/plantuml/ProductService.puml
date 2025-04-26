@@ -1,4 +1,4 @@
-@startuml ProductService
+@startuml
 class ProductService {
     - <<readonly>> _logger : ILogger<ProductService>
     - <<readonly>> _repository : NorthwindRepository

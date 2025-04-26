@@ -1,4 +1,4 @@
-@startuml EmployeeController
+@startuml
 class EmployeeController {
     - <<readonly>> _logger : ILogger<EmployeeController>
     - <<readonly>> _service : EmployeeService
