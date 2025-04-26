@@ -5,7 +5,8 @@ on:
     branches: [ main, develop ]
   pull_request:
     branches: [ main, develop ]
-
+  schedule:
+    - cron: '0 0 * * *'
 jobs:
   format:
     name: Code Format Check
