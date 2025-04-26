@@ -36,11 +36,8 @@ jobs:
             base=$(basename "$csfile" .cs)
             puml_file="$OUT_DIR/${base}.puml"
             echo "Generating diagram for $csfile → $puml_file"
-            # First, manually write the @startuml header with class name
             echo "@startuml $base" > "$puml_file"
-            # Now generate the body
-            dotnet tool run puml-gen "$csfile" >> "$puml_file"
-            # Then close the diagram
+            dotnet tool run puml-gen --output-stdout --no-scope "$csfile" >> "$puml_file"
             echo "@enduml" >> "$puml_file"
           done
 
