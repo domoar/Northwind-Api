@@ -1,0 +1,50 @@
+﻿name: Generate documentation
+
+permissions:
+   contents: write
+
+on:
+  workflow_run:
+    workflows: [ "CI - Build, Format, Test" ]
+    types:
+      - completed
+
+jobs:
+  generate-docs:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - run: dotnet tool restore
+
+      - name: Generate UML for Controllers, Services & Repositories
+        shell: bash
+        run: |
+          SRC_DIR="."
+          OUT_DIR="__extras__/docu/plantuml"
+          mkdir -p "$OUT_DIR"
+          find "$SRC_DIR" -type f \( \
+            -name '*Controller.cs' -o \
+            -name '*Service.cs'    -o \
+            -name '*Repository.cs' \
+          \) | while read -r csfile; do
+            base=$(basename "$csfile" .cs)
+            puml_file="$OUT_DIR/${base}.puml"
+            echo "Generating diagram for $csfile → $puml_file"
+            dotnet tool run puml-gen "$csfile" "$puml_file"
+          done
+
+      - name: Commit generated diagrams
+        if: github.ref == 'refs/heads/main'
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore: update PlantUML diagrams"
+          file_pattern: '__extras__/docu/plantuml/*.puml'
+          commit_user_name: github-actions[bot]
+          commit_user_email: github-actions[bot]@users.noreply.github.com
+          fail_on_empty_commit: false
