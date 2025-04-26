@@ -43,3 +43,13 @@ jobs:
             # Then close the diagram
             echo "@enduml" >> "$puml_file"
           done
+
+      - name: Commit generated diagrams
+        if: github.ref == 'refs/heads/main'
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore: update PlantUML diagrams"
+          file_pattern: '__extras__/docu/plantuml/*.puml'
+          commit_user_name: github-actions[bot]
+          commit_user_email: github-actions[bot]@users.noreply.github.com
+          fail_on_empty_commit: false
