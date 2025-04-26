@@ -1,84 +1,118 @@
 {
-    "files.exclude": {
-        "**/bin": true,
-        "**/obj": true,
-        "build.**": true,
-        ".vs": true
+  // ───── General editor behaviour ─────
+  "editor.defaultFormatter": "ms-dotnettools.csharp",
+  "[csharp]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit",
+      "source.fixAll": "always"
     },
-    "files.encoding": "utf8bom",
-    "dbmlERDPreviewer.preferredTheme": "dark",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+  },
+  // ───── House-keeping ─────
+  "files.exclude": {
+      "**/bin": true,
+      "**/obj": true,
+      "build.**": true,
+      ".vs": true,
+      ".sln": true
+  },
 
-    "todo-tree.general.tags": [
-    "TODO",
-    "FIXME",
-    "CHORE",
-    "HACK",
-    "REVIEW",
-    "NOTE",
-    "WTF",
-    "REQ",
-    "RFE",
-    "BUG"
-  ],
-  "todo-tree.highlights.defaultHighlight": {
-    "type": "line",
+  // ───── Git conveniences ─────
+  "git.autofetch": true,
+  "git.confirmSync": false,
+
+  // ───── Environment tweaks ─────
+  "terminal.integrated.env.linux": {
+    "DOTNET_CLI_TELEMETRY_OPTOUT": "1"
+  },
+
+  "files.encoding": "utf8bom",
+  "dbmlERDPreviewer.preferredTheme": "dark",
+
+  // ── Explorer file nesting ─────
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "appsettings.json": "${basename}.*.${extname}",
+    "docker-compose.yml"        : "${basename}.override.${extname}",
+    "docker-compose.dev.yml"    : "${basename}.override.${extname}, ${basename}.*.${extname}",
+    "docker-compose.prod.yml"   : "${basename}.override.${extname}, ${basename}.*.${extname}"
+  },
+
+  // ───── TODO Tree Extension ─────
+  "todo-tree.general.tags": [
+  "TODO",
+  "FIXME",
+  "CHORE",
+  "HACK",
+  "REVIEW",
+  "NOTE",
+  "WTF",
+  "REQ",
+  "RFE",
+  "BUG"
+],
+"todo-tree.highlights.defaultHighlight": {
+  "type": "line",
+  "icon": "$(check)",
+  "foreground": "#ffffff",
+  "background": "#444444",
+  "opacity": 50
+},
+"todo-tree.highlights.customHighlight": {
+  "TODO": {
     "icon": "$(check)",
     "foreground": "#ffffff",
-    "background": "#444444",
-    "opacity": 50
+    "background": "#2196f3"
   },
-  "todo-tree.highlights.customHighlight": {
-    "TODO": {
-      "icon": "$(check)",
-      "foreground": "#ffffff",
-      "background": "#2196f3"
-    },
-    "FIXME": {
-      "icon": "$(warning)",
-      "foreground": "#ffffff",
-      "background": "#E51400"
-    },
-    "CHORE": {
-      "icon": "$(gear)",
-      "foreground": "#ffffff",
-      "background": "#007ACC"
-    },
-    "HACK": {
-      "icon": "$(flame)",
-      "foreground": "#ffffff",
-      "background": "#ff9800"
-    },
-    "REVIEW": {
-      "icon": "$(eye)",
-      "foreground": "#ffffff",
-      "background": "#8800cc"
-    },
-    "NOTE": {
-      "icon": "$(info)",
-      "foreground": "#ffffff",
-      "background": "#009688"
-    },
-    "WTF": {
-      "icon": "$(question)",
-      "foreground": "#ffffff",
-      "background": "#ff1493"
-    },
-    "REQ": {
-      "icon": "$(file)",
-      "foreground": "#ffffff",
-      "background": "#9b59b6"
-    },
-    "RFE": {
-      "icon": "$(rocket)",
-      "foreground": "#ffffff",
-      "background": "#2980b9"
-    },
-    "BUG": {
-      "icon": "$(bug)",
-      "foreground": "#ffffff",
-      "background": "#c0392b"
-    }
+  "FIXME": {
+    "icon": "$(warning)",
+    "foreground": "#ffffff",
+    "background": "#E51400"
   },
+  "CHORE": {
+    "icon": "$(gear)",
+    "foreground": "#ffffff",
+    "background": "#007ACC"
+  },
+  "HACK": {
+    "icon": "$(flame)",
+    "foreground": "#ffffff",
+    "background": "#ff9800"
+  },
+  "REVIEW": {
+    "icon": "$(eye)",
+    "foreground": "#ffffff",
+    "background": "#8800cc"
+  },
+  "NOTE": {
+    "icon": "$(info)",
+    "foreground": "#ffffff",
+    "background": "#009688"
+  },
+  "WTF": {
+    "icon": "$(question)",
+    "foreground": "#ffffff",
+    "background": "#ff1493"
+  },
+  "REQ": {
+    "icon": "$(file)",
+    "foreground": "#ffffff",
+    "background": "#9b59b6"
+  },
+  "RFE": {
+    "icon": "$(rocket)",
+    "foreground": "#ffffff",
+    "background": "#2980b9"
+  },
+  "BUG": {
+    "icon": "$(bug)",
+    "foreground": "#ffffff",
+    "background": "#c0392b"
+  }
+},
 "todo-tree.highlights.scribble": false,
 "todo-tree.tree.showTagsFromActiveFile": false,
 "todo-tree.general.statusBar": "tags",
