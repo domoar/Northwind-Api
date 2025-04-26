@@ -11,6 +11,7 @@ This project was created using the template from [Clean Architecture Template](h
  3. [Database](#postgresql-database-setup-with-docker-compose)
  4. [Migration](#migration)
  5. [Architecture](#architecture)
+ 6. [CI/CD](#continuous-integration-und-continuous-deployment-cicd)
 
 ## Api
 
@@ -278,3 +279,5 @@ dotnet ef dbcontext scaffold \
 ```
 
 ## Architecture
+
+## Continuous Integration und Continuous Deployment (CI/CD)
