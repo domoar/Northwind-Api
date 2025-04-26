@@ -14,7 +14,7 @@ public class CustomerController : ControllerBase {
   private readonly ILogger<CustomerController> _logger;
   private readonly CustomerService _service;
 
-  public CustomerController(ILogger<CustomerController> logger, CustomerService service)
+  public CustomerController(ILogger<CustomerController> logger, CustomerService service) 
   {
     _logger = logger;
     _service = service;
