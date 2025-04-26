@@ -64,6 +64,24 @@ Jaeger displays distributed traces.
 
 #### How to setup Jaeger
 
+##### Additonal compose files for different purposes (.dcproj)
+
+- `docker-compose.yml` + `docker-compose.override.yml` – default local-dev stack (override is loaded automatically).
+- `docker-compose.dev.yml` – adds optional developer tooling (e.g. ).
+- `docker-compose.prod.yml` – production-only tweaks (harder restart policies, resource limits, etc.).
+
+```bash
+# development 
+docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+
+# production
+docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d
+```
+
+to run the developement stack.
+
+[Docker merge strategies](https://docs.docker.com/compose/how-tos/multiple-compose-files/merge/)
+
 ## Testing
 
 All Tests can be run by chaning the working directory of the unit or integration tests and then using the command:

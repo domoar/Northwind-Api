@@ -29,8 +29,9 @@
 		</None>
 		<None Include="..\..\__extras__\db\**\docker-compose.override.yml">
 			<Link>db\%(RecursiveDir)docker-compose.override.yml</Link>
-			<DependentUpon>docker-compose.yml</DependentUpon>
+			<DependentUpon>compose.yml</DependentUpon>
 		</None>
 	</ItemGroup>
+
 
 </Project>

@@ -8,13 +8,23 @@
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
     <DockerServiceName>api</DockerServiceName>
+    <DockerComposeFile>compose.yml</DockerComposeFile>
+    <AdditionalComposeFilePaths>docker-compose.prod.yml</AdditionalComposeFilePaths>
   </PropertyGroup>
   <ItemGroup>
     <None Include=".env" />
     <None Include="db_password.txt" />
+    <None Include="docker-compose.dev.override.yml">
+		<DependentUpon>docker-compose.dev.yml</DependentUpon>
+	</None>
+    <None Include="docker-compose.dev.yml" />
+    <None Include="docker-compose.prod.override.yml">
+      <DependentUpon>docker-compose.prod.yml</DependentUpon>
+    </None>
     <None Include="docker-compose.override.yml">
       <DependentUpon>docker-compose.yml</DependentUpon>
     </None>
+    <None Include="docker-compose.prod.yml" />
     <None Include="docker-compose.yml" />
     <None Include=".dockerignore" />
     <None Include="pgadmin.env" />
