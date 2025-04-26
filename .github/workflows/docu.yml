@@ -30,21 +30,16 @@ jobs:
           mkdir -p "$OUT_DIR"
           find "$SRC_DIR" -type f \( \
             -name '*Controller.cs' -o \
-            -name '*Service.cs'    -o \
+            -name '*Service.cs' -o \
             -name '*Repository.cs' \
-          \) | while read -r csfile; do
+          \) | while IFS= read -r csfile; do
             base=$(basename "$csfile" .cs)
             puml_file="$OUT_DIR/${base}.puml"
             echo "Generating diagram for $csfile → $puml_file"
-            dotnet tool run puml-gen "$csfile" "$puml_file"
+            # First, manually write the @startuml header with class name
+            echo "@startuml $base" > "$puml_file"
+            # Now generate the body
+            dotnet tool run puml-gen "$csfile" >> "$puml_file"
+            # Then close the diagram
+            echo "@enduml" >> "$puml_file"
           done
-
-      - name: Commit generated diagrams
-        if: github.ref == 'refs/heads/main'
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "chore: update PlantUML diagrams"
-          file_pattern: '__extras__/docu/plantuml/*.puml'
-          commit_user_name: github-actions[bot]
-          commit_user_email: github-actions[bot]@users.noreply.github.com
-          fail_on_empty_commit: false
