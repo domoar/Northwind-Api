@@ -12,6 +12,7 @@ This project was created using the template from [Clean Architecture Template](h
  4. [Migration](#migration)
  5. [Architecture](#architecture)
  6. [CI/CD](#continuous-integration-und-continuous-deployment-cicd)
+ 7. [Tools](#tools)
 
 ## Api
 
@@ -283,3 +284,11 @@ dotnet ef dbcontext scaffold \
 ## Continuous Integration und Continuous Deployment (CI/CD)
 
 `.github/workflows`
+
+## Tools
+
+Using the .editorconfig file all projects can be formatted using
+
+```bash
+cd dotnet format .\__Northwind__.sln --verbosity diagnostic
+```
