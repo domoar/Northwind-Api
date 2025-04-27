@@ -51,16 +51,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Include="..\..\__extras__\docu\**\*">
+		<None Include="..\..\.extras\docu\**\*">
 			<Link>docu\%(RecursiveDir)%(Filename)%(Extension)</Link>
 		</None>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="..\..\__extras__\docu\plantuml\HealthCheckResilienceService.puml" />
-	  <None Remove="..\..\__extras__\docu\plantuml\NorthwindController.puml" />
-	  <None Remove="..\..\__extras__\docu\plantuml\NorthwindRepository.puml" />
-	  <None Remove="..\..\__extras__\docu\plantuml\NorthwindService.puml" />
+	  <None Remove="..\..\.extras\docu\plantuml\HealthCheckResilienceService.puml" />
+	  <None Remove="..\..\.extras\docu\plantuml\NorthwindController.puml" />
+	  <None Remove="..\..\.extras\docu\plantuml\NorthwindRepository.puml" />
+	  <None Remove="..\..\.extras\docu\plantuml\NorthwindService.puml" />
 	</ItemGroup>
 
 </Project>

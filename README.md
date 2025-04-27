@@ -137,8 +137,8 @@ Before starting the container for the first time:
    - `key.pem`
 
     ```bash
-    copy .\__extras__\tls\certificate.crt C:\DockerVolumes\postgres\tls\
-    copy .\__extras__\tls\key.pem C:\DockerVolumes\postgres\tls\
+    copy .\.extras\tls\certificate.crt C:\DockerVolumes\postgres\tls\
+    copy .\.extras\tls\key.pem C:\DockerVolumes\postgres\tls\
     ```
 
 3. Create the directory `C:/DockerVolumes/postgres/sql/northwind`
@@ -147,22 +147,22 @@ Before starting the container for the first time:
     mkdir C:\DockerVolumes\postgres\tls
     ```
 
-4. Place the .sql files from `__extras__/db/postgres/sql` inside:
+4. Place the .sql files from `.extras/db/postgres/sql` inside:
    - `create-db-northwind.sql`
    - `create-schema-northwind.sql`
    - `northwind.sql`
 
     ```bash
-    copy .\__extras__\db\postgres\sql\create-db-northwind.sql C:\DockerVolumes\postgres\sql\northwind\
-    copy .\__extras__\db\postgres\sql\create-schema-northwind.sql C:\DockerVolumes\postgres\sql\northwind\
-    copy .\__extras__\db\postgres\sql\northwind.sql C:\DockerVolumes\postgres\sql\northwind\
+    copy .\.extras\db\postgres\sql\create-db-northwind.sql C:\DockerVolumes\postgres\sql\northwind\
+    copy .\.extras\db\postgres\sql\create-schema-northwind.sql C:\DockerVolumes\postgres\sql\northwind\
+    copy .\.extras\db\postgres\sql\northwind.sql C:\DockerVolumes\postgres\sql\northwind\
     ```
 
 These files are mounted read-only into the container and required for PostgreSQL to start with SSL.
 
 All configuration files are located under:
 
-`__extras__/db/postgres/`
+`.extras/db/postgres/`
 
 ### Setup Mode – Root Access, No TLS
 
@@ -171,7 +171,7 @@ Use this mode to fix file ownership and permissions. This runs the container wit
 #### Start the Container in Setup Mode
 
 ```bash
-cd __extras__/db/postgres/
+cd .extras/db/postgres/
 docker compose up --build
 ```
 

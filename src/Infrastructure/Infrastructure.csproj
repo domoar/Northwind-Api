@@ -24,10 +24,10 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<None Include="..\..\__extras__\db\**\*">
+		<None Include="..\..\.extras\db\**\*">
 			<Link>db\%(RecursiveDir)%(Filename)%(Extension)</Link>
 		</None>
-		<None Include="..\..\__extras__\db\**\docker-compose.override.yml">
+		<None Include="..\..\.extras\db\**\docker-compose.override.yml">
 			<Link>db\%(RecursiveDir)docker-compose.override.yml</Link>
 			<DependentUpon>compose.yml</DependentUpon>
 		</None>
