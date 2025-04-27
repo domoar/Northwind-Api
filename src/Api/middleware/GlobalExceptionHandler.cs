@@ -1,30 +1,42 @@
-﻿using System.Net;
+﻿using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Middleware;
-public class GlobalExceptionHandler(RequestDelegate next, ILogger<GlobalExceptionHandler> logger) {
-  private readonly RequestDelegate _next = next;
-  private readonly ILogger<GlobalExceptionHandler> _logger = logger;
 
-  public async Task InvokeAsync(HttpContext httpContext) {
-    try { await _next(httpContext); }
-    catch (Exception ex) {
+public sealed class GlobalExceptionHandler : IExceptionHandler {
+  private readonly ILogger<GlobalExceptionHandler> _logger;
+  private readonly IProblemDetailsService _problemDetailsService;
 
-      if (ex is ProblemException) {
-        return;
-      }
+  public GlobalExceptionHandler(
+      ILogger<GlobalExceptionHandler> logger,
+      IProblemDetailsService problemDetailsService) {
+    _logger = logger;
+    _problemDetailsService = problemDetailsService;
+  }
 
-      _logger.LogError(ex, "An error occurred during the request processing.");
-      var problemDetails = new ProblemDetails {
-        Status = StatusCodes.Status500InternalServerError,
-        Title = "An unexpected error occurred.",
-        Detail = ex.Message,
-        Instance = httpContext.Request.Path,
-      };
+  public async ValueTask<bool> TryHandleAsync(
+      HttpContext httpContext,
+      Exception exception,
+      CancellationToken ct) {
 
-      httpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-      httpContext.Response.ContentType = "application/json";
-      await httpContext.Response.WriteAsJsonAsync(problemDetails);
-    }
+    var pd = new ProblemDetails {
+      Status = StatusCodes.Status500InternalServerError,
+      Title = "An unexpected error occurred.",
+      Detail = exception.Message,
+      Type = "server_error",
+      Instance = httpContext.Request.Path
+    };
+
+    httpContext.Response.StatusCode = pd.Status!.Value;
+
+    var handled = await _problemDetailsService.TryWriteAsync(
+        new ProblemDetailsContext {
+          HttpContext = httpContext,
+          ProblemDetails = pd
+        });
+
+    _logger.LogError(exception, "Unhandled exception translated to ProblemDetails");
+
+    return handled;
   }
 }

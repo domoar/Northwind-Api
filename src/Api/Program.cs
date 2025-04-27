@@ -22,13 +22,14 @@ builder.Services.AddDefaultSwaggerGeneration();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDomain();
-
 builder.Services.AddInfrastructure(
   builder.Environment,
   builder.Configuration
 );
-
 builder.Services.AddApplication();
+
+builder.Services.AddProblemDetails();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -48,6 +49,9 @@ builder.Services.AddSingleton<Banner>();
 
 var app = builder.Build();
 
+app.UseExceptionHandler();
+app.UseStatusCodePages();
+
 app.UseMiddleware<GlobalExceptionHandler>();
 app.UseHttpsRedirection();
 
@@ -65,6 +69,13 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction()) {
     options.ConfigObject.AdditionalItems["syntaxHighlight"] = false;
     options.RoutePrefix = "swagger";
   });
+}
+
+if (app.Environment.IsDevelopment() || app.Environment.IsStaging()) {
+  app.UseDeveloperExceptionPage();
+}
+else {
+  app.UseExceptionHandler();
 }
 
 
