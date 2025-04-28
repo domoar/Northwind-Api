@@ -13,6 +13,7 @@ This project was created using the template from [Clean Architecture Template](h
  5. [Architecture](#architecture)
  6. [CI/CD](#continuous-integration-und-continuous-deployment-cicd)
  7. [Tools](#tools)
+ 8. [Git Hooks](#git-hooks)
 
 ## Api
 
@@ -38,7 +39,12 @@ curl -X 'GET' \
 
 ## DockerFile and DockerCompose for the project
 
-There is a Dockerfile and a docker-compose.yml in the root directory.
+There is a Dockerfile and a docker-compose.yml in the root directory. The DockerFile can be build with:
+
+```bash
+docker build .
+```
+
 The compose file starts five services:
 
 - api – ASP.NET Core application.
@@ -283,7 +289,7 @@ dotnet ef dbcontext scaffold \
 
 ## Continuous Integration und Continuous Deployment (CI/CD)
 
-`.github/workflows`
+CI/CD is handled with Github Actions see the workflows in `.github/workflows`.
 
 ## Tools
 
@@ -292,3 +298,17 @@ Using the .editorconfig file all projects can be formatted using
 ```bash
 cd dotnet format .\__Northwind__.sln --verbosity diagnostic
 ```
+
+## Git Hooks
+
+This repo ships with a pre-commit hook in **`.githooks/pre-commit`**.  
+Enable it once per clone by running
+
+```bash
+git config core.hooksPath .githooks
+```
+
+after cloning.
+[Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-)
+
+The pre-commit checks for formatting/ linting and also ensures the solution compiles and can be build without errors.
