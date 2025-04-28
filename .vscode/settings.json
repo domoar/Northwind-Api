@@ -40,7 +40,6 @@
     "docker-compose.dev.yml"    : "${basename}.override.${extname}, ${basename}.*.${extname}",
     "docker-compose.prod.yml"   : "${basename}.override.${extname}, ${basename}.*.${extname}"
   },
-
   // ───── TODO Tree Extension ─────
   "todo-tree.general.tags": [
   "TODO",

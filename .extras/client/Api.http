@@ -1,0 +1,22 @@
+@baseUrl = https://localhost:7104
+@json = application/json
+
+### Get all customers
+GET {{baseUrl}}/api/Customer/GetCustomers
+Accept: {{json}}
+X-Version: 1.0
+
+### Get all employees
+GET {{baseUrl}}/api/Employee/GetEmployees
+Accept: {{json}}
+X-Version: 1.0
+
+### Get one employee
+GET {{baseUrl}}/api/Employee/GetEmployee?employeeId=1
+Accept: application/json
+X-Version: 1.0
+
+### Get one customer
+GET {{baseUrl}}/api/Customer/GetCustomer?customerId=ALFKI
+Accept: application/json
+X-Version: 1.0

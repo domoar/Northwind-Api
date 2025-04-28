@@ -114,6 +114,14 @@ Example to run individual test parts:
 dotnet test --filter "category=application"
 ```
 
+### Postman
+
+The testsuite contains a postman collection that can be used via the postman application or its vscode extension. In `.extras/postman`.
+
+### Testsuite client
+
+The testsuite also contains a .http file with environments pre configured. In `.extras/client` you can either use the vscode extension [Rest-Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) or the built in feature from VS2022.
+
 ## Third-Party Content Notice
 
 This project includes data derived from:
