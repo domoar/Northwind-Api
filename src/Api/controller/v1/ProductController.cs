@@ -18,9 +18,10 @@ public class ProductController : ControllerBase {
 
   [HttpPost]
   public async Task<IActionResult> CreateProduct([FromBody] product product) {
-    if (product == null)
+    if (product == null) {
       return BadRequest("Product is null.");
-
+    }
+    await Task.Delay(1);
     return CreatedAtAction(nameof(CreateProduct), new { id = product.product_id }, product);
   }
 
