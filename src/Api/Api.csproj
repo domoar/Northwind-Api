@@ -22,6 +22,7 @@
     <PackageReference Include="AspNetCore.HealthChecks.UI.Core" Version="9.0.0" />
     <PackageReference Include="Figgle" Version="0.5.1" />
     <PackageReference Include="Figgle.Generator" Version="0.5.1" />
+    <PackageReference Include="Fluentvalidation" Version="11.11.0" />
     <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="9.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.1.0" />

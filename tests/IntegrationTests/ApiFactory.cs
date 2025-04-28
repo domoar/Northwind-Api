@@ -20,30 +20,39 @@ public class NorthwindApiFactory : WebApplicationFactory<IApiMarker>, IAsyncLife
 
     _logger = loggerFactory.CreateLogger<NorthwindApiFactory>();
 
-    _databaseContainer = new PostgreSqlBuilder()
-        .WithImage("postgres:16.2-bookworm")
-        .WithName("northwind-postgres-testcontainer")
-        .WithCleanUp(true)
-        .WithPortBinding(8888, 8888)
-        .Build();
+    // _databaseContainer = new PostgreSqlBuilder()
+    //     .WithImage("postgres:16.2-bookworm")
+    //     .WithName("northwind-postgres-testcontainer")
+    //     .WithCleanUp(true)
+    //     .WithPortBinding(8888, 8888)
+    //     .Build();
   }
 
   public async Task InitializeAsync() {
-    await _databaseContainer.StartAsync();
+    await Task.Delay(1);
+  }
 
+  // public async Task InitializeAsync() {
+  //   await Task.Delay(1);
+  //   // await _databaseContainer.StartAsync();
+  // }
 
+  // public new async Task IAsyncLifetime.DisposeAsync() {
+  //   await Task.Delay(1);
+  //   // await _databaseContainer.StopAsync();
+  // }
+
+  protected override void ConfigureWebHost(IWebHostBuilder builder) {
+    // var integrationTestConnection = _databaseContainer.GetConnectionString();
+    // _logger.LogDebug("Testcontainer: {ContainerName} is available at {Connection}", _databaseContainer.Name, integrationTestConnection);
+    // //TODO inject new connection to webhost without breaking the cfg
+    base.ConfigureWebHost(builder);
   }
 
   async Task IAsyncLifetime.DisposeAsync() {
-    await _databaseContainer.StopAsync();
+    await Task.Delay(1);
   }
 
-  protected override void ConfigureWebHost(IWebHostBuilder builder) {
-    var integrationTestConnection = _databaseContainer.GetConnectionString();
-    _logger.LogDebug("Testcontainer: {ContainerName} is available at {Connection}", _databaseContainer.Name, integrationTestConnection);
-    //TODO inject new connection to webhost without breaking the cfg
-    base.ConfigureWebHost(builder);
-  }
   [CollectionDefinition("ApiFactory context collection")]
   public class SharedApiFactoryFixtureCollection : ICollectionFixture<NorthwindApiFactory> { }
 }

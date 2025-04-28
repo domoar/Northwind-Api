@@ -2,7 +2,4 @@
 
 namespace Api.Validation;
 
-public class DefaultValidatior
-{
-
-}
+//TODO use fluent validation
