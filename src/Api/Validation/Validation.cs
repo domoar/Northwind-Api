@@ -2,7 +2,6 @@
 
 namespace Api.Validation;
 
-public class DefaultValidatior
-{
+public class DefaultValidatior {
 
 }
