@@ -320,3 +320,7 @@ after cloning.
 [Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-)
 
 The pre-commit checks for formatting/ linting and also ensures the solution compiles and can be build without errors.
+
+
+##Code Coverage
+[View Coverage Report](https://github.com/domoar/Northwind-Api/actions/runs/14728929658/artifacts)
