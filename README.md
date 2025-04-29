@@ -114,6 +114,11 @@ Example to run individual test parts:
 dotnet test --filter "category=application"
 ```
 
+### Code Coverage
+
+[View Full Coverage Report](https://domoar.github.io/Northwind-Api/coverage/index.html)
+
+
 ### Postman
 
 The testsuite contains a postman collection that can be used via the postman application or its vscode extension. In `.extras/postman`.
@@ -317,6 +322,6 @@ git config core.hooksPath .githooks
 ```
 
 after cloning.
-[Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-)
+[Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
 
 The pre-commit checks for formatting/ linting and also ensures the solution compiles and can be build without errors.

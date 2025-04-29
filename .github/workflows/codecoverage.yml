@@ -41,6 +41,9 @@ jobs:
             "-targetdir:coverage-report" \
             "-reporttypes:Html"
 
+      - name: Add .nojekyll to allow all files
+        run: touch coverage-report/.nojekyll
+
       - name: Upload Coverage Report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
