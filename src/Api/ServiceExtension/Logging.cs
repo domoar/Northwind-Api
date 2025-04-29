@@ -1,7 +1,8 @@
-﻿using Serilog;
+﻿using OpenTelemetry.Logs;
+using Serilog;
 using Serilog.Sinks.OpenTelemetry;
 
-namespace Api.ServiceExtensions;
+namespace Api.ServiceExtension;
 public static class LoggingCollectionExtensions {
   public static IServiceCollection AddLoggerWithSeq(this IServiceCollection services, IConfiguration configuration) {
 
@@ -25,6 +26,7 @@ public static class LoggingCollectionExtensions {
     services.AddLogging(logging => {
       logging.ClearProviders();
       logging.AddSerilog(Log.Logger, dispose: true);
+      logging.AddOpenTelemetry(x => x.AddOtlpExporter());
     });
 
     return services;

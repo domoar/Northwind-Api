@@ -1,6 +1,6 @@
 ﻿using Api;
 using Api.Middleware;
-using Api.ServiceExtensions;
+using Api.ServiceExtension;
 using Application;
 using Domain;
 using Infrastructure;
@@ -11,8 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog();
 builder.Services.AddDefaultLogger(builder.Configuration);
 
-builder.Services.AddJaeger(builder.Configuration);
-builder.Services.AddZipkin(builder.Configuration);
+builder.Services.AddOpenTelemetryWithExporters(
+    builder.Configuration,
+    TelemetryExporters.Jaeger | TelemetryExporters.Zipkin);
 
 builder.Services.AddDefaultProblemDetails();
 builder.Services.AddDefaultApiVersioning();
