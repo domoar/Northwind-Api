@@ -1,0 +1,55 @@
+﻿name: Generate code coverage
+
+permissions:
+  contents: write
+
+on:
+  workflow_run:
+    workflows: ["CI - Build, Format, Test"]
+    types:
+      - completed
+
+jobs:
+  generate-coverage:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - run: dotnet tool restore
+
+      - name: Run UnitTests with Coverage
+        run: |
+          dotnet test ./tests/UnitTests/UnitTests.csproj --collect:"XPlat Code Coverage" --results-directory ./coverage-results/unittests
+
+      - name: Run IntegrationTests with Coverage
+        run: |
+          dotnet test ./tests/IntegrationTests/IntegrationTests.csproj --collect:"XPlat Code Coverage" --results-directory ./coverage-results/integrationtests
+
+      - name: Merge coverage reports
+        run: |
+          dotnet reportgenerator \
+            "-reports:coverage-results/**/coverage.cobertura.xml" \
+            "-targetdir:coverage-report" \
+            "-reporttypes:Html"
+
+      - name: Upload Coverage Report Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage-report
+
+      - name: Update README.md with Coverage Link
+        run: |
+          COVERAGE_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts"
+          echo -e "\n\n##Code Coverage\n[View Coverage Report](${COVERAGE_URL})" >> README.md
+
+      - name: Commit updated README
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "docs: add link to code coverage report"
