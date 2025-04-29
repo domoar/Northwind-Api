@@ -1,7 +1,7 @@
-﻿name: Generate code coverage
+﻿name: Generate Code Coverage
 
 permissions:
-  contents: write
+  contents: read
 
 on:
   workflow_run:
@@ -15,21 +15,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code at the triggering commit
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.workflow_run.head_repository.full_name }}
+          ref: ${{ github.event.workflow_run.head_branch }}
 
-      - uses: actions/setup-dotnet@v4
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
 
-      - run: dotnet tool restore
+      - name: Restore tools
+        run: dotnet tool restore
 
-      - name: Run UnitTests with Coverage
+      - name: Run Unit Tests with Coverage
         run: |
-          dotnet test ./tests/UnitTests/UnitTests.csproj --collect:"XPlat Code Coverage" --results-directory ./coverage-results/unittests
+          dotnet test ./tests/UnitTests/UnitTests.csproj \
+            --collect:"XPlat Code Coverage" \
+            --results-directory ./coverage-results/unittests
 
-      - name: Run IntegrationTests with Coverage
+      - name: Run Integration Tests with Coverage
         run: |
-          dotnet test ./tests/IntegrationTests/IntegrationTests.csproj --collect:"XPlat Code Coverage" --results-directory ./coverage-results/integrationtests
+          dotnet test ./tests/IntegrationTests/IntegrationTests.csproj \
+            --collect:"XPlat Code Coverage" \
+            --results-directory ./coverage-results/integrationtests
 
       - name: Merge coverage reports
         run: |
@@ -43,13 +53,3 @@ jobs:
         with:
           name: coverage-report
           path: coverage-report
-
-      - name: Update README.md with Coverage Link
-        run: |
-          COVERAGE_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts"
-          echo -e "\n\n##Code Coverage\n[View Coverage Report](${COVERAGE_URL})" >> README.md
-
-      - name: Commit updated README
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "docs: add link to code coverage report"
