@@ -120,5 +120,17 @@
 "todo-tree.general.debug": false,
 "todo-tree.tree.scanMode": "workspace",
 "todo-tree.tree.showBadges": false,
-"todo-tree.tree.disableCompactFolders": true
+"todo-tree.tree.disableCompactFolders": true,
+"sqltools.connections": [
+  {
+    "previewLimit": 50,
+    "server": "localhost",
+    "port": 5432,
+    "driver": "PostgreSQL",
+    "name": "Northwind (Docker Postgres)",
+    "database": "northwind",
+    "username": "postgres",
+    "password": "postgres"
+  }
+]
 }
