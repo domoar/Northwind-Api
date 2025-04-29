@@ -1,7 +1,9 @@
-﻿name: Generate Code Coverage
+﻿name: Generate and Publish Code Coverage
 
 permissions:
-  contents: read
+  contents: write
+  pages: write
+  id-token: write
 
 on:
   workflow_run:
@@ -15,14 +17,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code at the triggering commit
-        uses: actions/checkout@v4
-        with:
-          repository: ${{ github.event.workflow_run.head_repository.full_name }}
-          ref: ${{ github.event.workflow_run.head_branch }}
+      - uses: actions/checkout@v4
 
-      - name: Set up .NET
-        uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
 
@@ -31,25 +28,23 @@ jobs:
 
       - name: Run Unit Tests with Coverage
         run: |
-          dotnet test ./tests/UnitTests/UnitTests.csproj \
-            --collect:"XPlat Code Coverage" \
-            --results-directory ./coverage-results/unittests
+          dotnet test ./tests/UnitTests/UnitTests.csproj --collect:"XPlat Code Coverage" --results-directory ./coverage-results/unittests
 
       - name: Run Integration Tests with Coverage
         run: |
-          dotnet test ./tests/IntegrationTests/IntegrationTests.csproj \
-            --collect:"XPlat Code Coverage" \
-            --results-directory ./coverage-results/integrationtests
+          dotnet test ./tests/IntegrationTests/IntegrationTests.csproj --collect:"XPlat Code Coverage" --results-directory ./coverage-results/integrationtests
 
-      - name: Merge coverage reports
+      - name: Merge Coverage Reports
         run: |
           dotnet reportgenerator \
             "-reports:coverage-results/**/coverage.cobertura.xml" \
             "-targetdir:coverage-report" \
             "-reporttypes:Html"
 
-      - name: Upload Coverage Report Artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload Coverage Report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          name: coverage-report
-          path: coverage-report
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./coverage-report
+          destination_dir: coverage
+          keep_files: true

@@ -1,6 +1,6 @@
 # Northwind
 
-[![CI - Build, Format, Test](https://github.com/domoar/Northwind-Api/actions/workflows/build.yml/badge.svg)](https://github.com/domoar/Northwind-Api/actions/workflows/build.yml) [![Generate documentation](https://github.com/domoar/Northwind-Api/actions/workflows/documentation.yml/badge.svg)](https://github.com/domoar/Northwind-Api/actions/workflows/documentation.yml)
+[![CI - Build, Format, Test](https://github.com/domoar/Northwind-Api/actions/workflows/build.yml/badge.svg)](https://github.com/domoar/Northwind-Api/actions/workflows/build.yml) [![Generate documentation](https://github.com/domoar/Northwind-Api/actions/workflows/documentation.yml/badge.svg)](https://github.com/domoar/Northwind-Api/actions/workflows/documentation.yml) [![Generate Code Coverage](https://github.com/domoar/Northwind-Api/actions/workflows/codecoverage.yml/badge.svg)](https://github.com/domoar/Northwind-Api/actions/workflows/codecoverage.yml)
 
 This project was created using the template from [Clean Architecture Template](https://github.com/domoar/CleanArchitectureTemplate), and will be redone once github templates allows variable names in templates. [Discussion](https://github.com/orgs/community/discussions/5336)
 
@@ -320,7 +320,3 @@ after cloning.
 [Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-)
 
 The pre-commit checks for formatting/ linting and also ensures the solution compiles and can be build without errors.
-
-
-##Code Coverage
-[View Coverage Report](https://github.com/domoar/Northwind-Api/actions/runs/14728929658/artifacts)
