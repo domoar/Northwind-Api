@@ -1,0 +1,11 @@
+@startuml
+class ProductController {
+    - <<readonly>> _logger : ILogger<ProductController>
+    - <<readonly>> _service : ProductService
+    + <<async>> CreateProduct(product:product) : Task<IActionResult>
+    + <<async>> UpdateProduct(id:int, product:product) : Task<IActionResult>
+    + <<async>> PatchProduct(id:int, updates:JsonElement) : Task<IActionResult>
+    + <<async>> DeleteProduct(id:int) : Task<IActionResult>
+}
+ControllerBase <|-- ProductController
+@enduml
