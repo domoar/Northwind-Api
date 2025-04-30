@@ -49,5 +49,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./coverage-report
-          destination_dir: coverage
+          destination_dir: codecoverage
           keep_files: true

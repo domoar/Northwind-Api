@@ -40,8 +40,10 @@ jobs:
             echo "Generating diagram for $csfile → $puml_file"
             dotnet tool run puml-gen "$csfile" "$puml_file"
           done
+
       - name: Add .nojekyll to allow all files
-        run: touch coverage-report/.nojekyll
+        run: touch documentation/plantuml/.nojekyll
+
       - name: Upload UML Diagrams to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
