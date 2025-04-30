@@ -221,12 +221,17 @@ var assemblies = [
   {
     "name": "Api",
     "classes": [
-      { "name": "Api.Controller.v1.CustomerController", "rp": "Api_CustomerController.html", "cl": 0, "ucl": 20, "cal": 20, "tl": 47, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Api.Controller.v1.CustomerController", "rp": "Api_CustomerController.html", "cl": 0, "ucl": 20, "cal": 20, "tl": 48, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Api.Controller.v1.EmployeeController", "rp": "Api_EmployeeController.html", "cl": 0, "ucl": 20, "cal": 20, "tl": 46, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Api.Controller.v1.ProductController", "rp": "Api_ProductController.html", "cl": 0, "ucl": 18, "cal": 18, "tl": 47, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Api.Dev.TrackedRequestDuration", "rp": "Api_TrackedRequestDuration.html", "cl": 0, "ucl": 8, "cal": 8, "tl": 39, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Api.Extension.LogTemplates", "rp": "Api_LogTemplates.html", "cl": 0, "ucl": 5, "cal": 5, "tl": 17, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Api.Extension.PagedResponseUtil", "rp": "Api_PagedResponseUtil.html", "cl": 0, "ucl": 14, "cal": 14, "tl": 22, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Api.Middleware.GlobalExceptionHandler", "rp": "Api_GlobalExceptionHandler.html", "cl": 6, "ucl": 17, "cal": 23, "tl": 42, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Api.Request.Parameters.CustomerRequest", "rp": "Api_CustomerRequest.html", "cl": 0, "ucl": 1, "cal": 1, "tl": 5, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Api.Request.Validation.CustomerRequestValidator<T>", "rp": "Api_CustomerRequestValidator_1.html", "cl": 0, "ucl": 11, "cal": 11, "tl": 22, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Api.Response.PagedResponse<T>", "rp": "Api_PagedResponse_1.html", "cl": 0, "ucl": 21, "cal": 21, "tl": 54, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Api.Response.Response<T>", "rp": "Api_Response_1.html", "cl": 0, "ucl": 4, "cal": 4, "tl": 18, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Api.ServiceExtension.ApiVersioningServiceCollectionExtensions", "rp": "Api_ApiVersioningServiceCollectionExtensions.html", "cl": 14, "ucl": 2, "cal": 16, "tl": 24, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Api.ServiceExtension.LoggingCollectionExtensions", "rp": "Api_LoggingCollectionExtensions.html", "cl": 11, "ucl": 24, "cal": 35, "tl": 49, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Api.ServiceExtension.MetricsCollectionsExtensions", "rp": "Api_MetricsCollectionsExtensions.html", "cl": 0, "ucl": 4, "cal": 4, "tl": 9, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
@@ -234,7 +239,7 @@ var assemblies = [
       { "name": "Api.ServiceExtension.ProblemDetailsServiceCollectionExtensions", "rp": "Api_ProblemDetailsServiceCollectionExtensions.html", "cl": 24, "ucl": 0, "cal": 24, "tl": 34, "cb": 2, "tb": 4, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Api.ServiceExtension.ResponseCompressionServiceCollectionExtensions", "rp": "Api_ResponseCompressionServiceCollectionExtensions.html", "cl": 11, "ucl": 0, "cal": 11, "tl": 19, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Api.ServiceExtension.SwaggerGeneration", "rp": "Api_SwaggerGeneration.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 11, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "Program", "rp": "Api_Program.html", "cl": 53, "ucl": 3, "cal": 56, "tl": 93, "cb": 5, "tb": 8, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Program", "rp": "Api_Program.html", "cl": 56, "ucl": 3, "cal": 59, "tl": 101, "cb": 5, "tb": 8, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
     ]},
   {
     "name": "Application",
