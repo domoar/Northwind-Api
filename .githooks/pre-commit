@@ -16,7 +16,7 @@ fi
 # 2. dotnet format (verify only)
 ########################################
 echo "Checking C# formatting..."
-if ! dotnet format ./__CleanArchitectureTemplate__.sln --verify-no-changes --no-restore --verbosity minimal; then
+if ! dotnet format ./__Northwind__.sln --verify-no-changes --no-restore --verbosity minimal; then
     echo "✖ Formatting issues found. Run 'dotnet format' and stage the fixes."
     exit 1
 fi
@@ -26,7 +26,7 @@ echo "✔ Formatting OK"
 # 2. dotnet build gate
 ########################################
 echo " Building solution..."
-if ! dotnet build ./__CleanArchitectureTemplate__.sln --configuration Release --nologo --no-restore; then
+if ! dotnet build ./__Northwind__.sln --configuration Release --nologo --no-restore; then
     echo "✖ Build failed. Fix the errors before committing."
     exit 1
 fi
