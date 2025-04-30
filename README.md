@@ -315,14 +315,14 @@ cd dotnet format .\__Northwind__.sln --verbosity diagnostic
 
 ## Git Hooks
 
-This repo ships with a pre-commit hook in **`.githooks/pre-commit`**.  
-Enable it once per clone by running
+## Git Hooks
+
+This repo ships with a pre-commit hook in **`.githooks/pre-commit`**. Enable it once per clone by running
 
 ```bash
 git config core.hooksPath .githooks
 ```
 
-after cloning.
+to enable the hook after cloning the project.
 [Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
-
-The pre-commit checks for formatting/ linting and also ensures the solution compiles and can be build without errors.
+The pre-commit checks for formatting/ linting and also if the solution compiles and can be build without errors.
