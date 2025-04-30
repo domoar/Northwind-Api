@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+set -euo pipefail   # fail fast on errors or unset vars
+
+########################################
+# 1. Determine the commit to diff against
+########################################
+if git rev-parse --verify HEAD >/dev/null 2>&1; then
+    against=HEAD
+else
+    # Initial commit: diff against an empty tree object
+    against=$(git hash-object -t tree /dev/null)
+fi
+
+########################################
+# 2. dotnet format (verify only)
+########################################
+echo "Checking C# formatting..."
+if ! dotnet format ./__CleanArchitectureTemplate__.sln --verify-no-changes --no-restore --verbosity minimal; then
+    echo "✖ Formatting issues found. Run 'dotnet format' and stage the fixes."
+    exit 1
+fi
+echo "✔ Formatting OK"
+
+########################################
+# 2. dotnet build gate
+########################################
+echo " Building solution..."
+if ! dotnet build ./__CleanArchitectureTemplate__.sln --configuration Release --nologo --no-restore; then
+    echo "✖ Build failed. Fix the errors before committing."
+    exit 1
+fi
+echo "✔ Build succeeded"
+
+exit 0
