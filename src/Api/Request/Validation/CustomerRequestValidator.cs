@@ -6,17 +6,15 @@ namespace Api.Request.Validation;
 public class CustomerRequestValidator<T> : AbstractValidator<T> where T : CustomerRequest {
   public const int MAX_ID_LENGTH = 55;
 
-  //TODO use child rules for better structure
   public CustomerRequestValidator() {
-    RuleFor(c => c.CustomerID)
+    RuleFor(x => x.CustomerID)
         .NotNull()
-        .WithMessage("Customer ID cannot be null")
+            .WithErrorCode("CustomerID.NotNull")
         .NotEmpty()
-        .WithMessage("Customer ID cannot be empty.")
-        .Must(c => c!.Trim().Length > 0)
-        .WithMessage("Customer ID cannot contain only whitespace.")
+            .WithErrorCode("CustomerID.NotEmpty")
+        .Must(id => string.IsNullOrWhiteSpace(id) == false)
+            .WithErrorCode("CustomerID.WhitespaceOnly")
         .MaximumLength(MAX_ID_LENGTH)
-        .WithMessage($"Customer ID cannot exceed {MAX_ID_LENGTH} characters.");
-
+            .WithErrorCode("CustomerID.TooLong");
   }
 }
