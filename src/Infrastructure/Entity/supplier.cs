@@ -53,6 +53,6 @@ public partial class supplier {
 #pragma warning restore IDE1006 // Naming Styles
 
 #pragma warning disable IDE1006 // Naming Styles
-  public virtual ICollection<product> products { get; set; } = new List<product>();
+  public virtual ICollection<product> products { get; set; } = [];
 #pragma warning restore IDE1006 // Naming Styles
 }

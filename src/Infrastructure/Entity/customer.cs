@@ -49,10 +49,10 @@ public partial class customer {
 #pragma warning restore IDE1006 // Naming Styles
 
 #pragma warning disable IDE1006 // Naming Styles
-  public virtual ICollection<order> orders { get; set; } = new List<order>();
+  public virtual ICollection<order> orders { get; set; } = [];
 #pragma warning restore IDE1006 // Naming Styles
 
 #pragma warning disable IDE1006 // Naming Styles
-  public virtual ICollection<customer_demographic> customer_types { get; set; } = new List<customer_demographic>();
+  public virtual ICollection<customer_demographic> customer_types { get; set; } = [];
 #pragma warning restore IDE1006 // Naming Styles
 }
