@@ -1,4 +1,5 @@
 ﻿using Api.Extension;
+using Api.Request.Parameters;
 using Application.service;
 using Application.Service;
 using Infrastructure.Entity;
@@ -30,14 +31,14 @@ public class CustomerController : ControllerBase {
   [HttpGet]
   [ProducesResponseType(typeof(customer), StatusCodes.Status200OK)]
   [ProducesResponseType(StatusCodes.Status404NotFound)]
-  public async Task<IActionResult> GetCustomer(string customerId, CancellationToken ct) {
-    var result = await _service.FindById(customerId, ct);
+  public async Task<IActionResult> GetCustomer(CustomerRequest req, CancellationToken ct) {
+    var result = await _service.FindById(req.CustomerID, ct);
     if (result is null) {
-      _logger.LogInformation("Customer {CustomerId} not found", customerId);
+      _logger.LogInformation("Customer {CustomerId} not found", req.CustomerID);
       return NotFound(new ProblemDetails {
         Title = "Customer not found",
         Status = StatusCodes.Status404NotFound,
-        Detail = $"Not customer with id „{customerId}“ exists",
+        Detail = $"Not customer with id „{req.CustomerID}“ exists",
       });
     }
     return Ok(result);

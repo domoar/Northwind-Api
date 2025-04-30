@@ -1,8 +1,12 @@
 ﻿using Api;
 using Api.Middleware;
+using Api.Request.Parameters;
+using Api.Request.Validation;
 using Api.ServiceExtension;
 using Application;
 using Domain;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Infrastructure;
 using Serilog;
 
@@ -45,6 +49,10 @@ builder
   .AddJsonOptions(options => {
     options.JsonSerializerOptions.WriteIndented = false;
   });
+
+builder
+  .Services.AddFluentValidationAutoValidation()
+  .AddValidatorsFromAssemblyContaining<CustomerRequestValidator<CustomerRequest>>();
 
 builder.Services.AddSingleton<Banner>();
 
