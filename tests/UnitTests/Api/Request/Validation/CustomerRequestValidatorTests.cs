@@ -4,6 +4,7 @@ using FluentValidation.TestHelper;
 
 namespace UnitTests.Api.Request.Validation;
 
+[Trait("category", "api")]
 public class CustomerRequestValidatorTests {
   private readonly CustomerRequestValidator<CustomerRequest> _validator;
 

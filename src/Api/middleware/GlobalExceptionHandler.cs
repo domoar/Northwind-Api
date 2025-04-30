@@ -35,7 +35,7 @@ public sealed class GlobalExceptionHandler : IExceptionHandler {
           ProblemDetails = pd
         });
 
-    _logger.LogError(exception, "Unhandled exception translated to ProblemDetails");
+    _logger.LogError(exception, "Unhandled exception.");
 
     return handled;
   }

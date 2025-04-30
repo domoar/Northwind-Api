@@ -1,9 +1,0 @@
-@startuml
-class EmployeeService {
-    - <<readonly>> _logger : ILogger<EmployeeService>
-    - <<readonly>> _repository : NorthwindRepository
-    + EmployeeService(logger:ILogger<EmployeeService>, repository:NorthwindRepository)
-    + <<async>> FindById(id:short, ct:CancellationToken) : Task<employee?>
-    + <<async>> FindAll(ct:CancellationToken) : Task<employee[]>
-}
-@enduml

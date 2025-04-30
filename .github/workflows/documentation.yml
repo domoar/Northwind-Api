@@ -1,7 +1,9 @@
-﻿name: Generate documentation
+﻿name: Generate And Publish Documentation
 
 permissions:
-   contents: write
+  contents: write
+  pages: write
+  id-token: write
 
 on:
   workflow_run:
@@ -26,7 +28,7 @@ jobs:
         shell: bash
         run: |
           SRC_DIR="."
-          OUT_DIR=".extras/docu/plantuml"
+          OUT_DIR="documentation/plantuml"
           mkdir -p "$OUT_DIR"
           find "$SRC_DIR" -type f \( \
             -name '*Controller.cs' -o \
@@ -38,13 +40,12 @@ jobs:
             echo "Generating diagram for $csfile → $puml_file"
             dotnet tool run puml-gen "$csfile" "$puml_file"
           done
-
-      - name: Commit generated diagrams
-        if: github.ref == 'refs/heads/main'
-        uses: stefanzweifel/git-auto-commit-action@v4
+      - name: Add .nojekyll to allow all files
+        run: touch coverage-report/.nojekyll
+      - name: Upload UML Diagrams to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          commit_message: "chore: update PlantUML diagrams"
-          file_pattern: '.extras/docu/plantuml/*.puml'
-          commit_user_name: github-actions[bot]
-          commit_user_email: github-actions[bot]@users.noreply.github.com
-          fail_on_empty_commit: false
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./documentation/plantuml
+          destination_dir: docs/uml
+          keep_files: true
