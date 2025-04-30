@@ -13,6 +13,6 @@ public partial class region {
 #pragma warning restore IDE1006 // Naming Styles
 
 #pragma warning disable IDE1006 // Naming Styles
-  public virtual ICollection<territory> territories { get; set; } = [];
+  public virtual ICollection<territory> territories { get; set; } = new List<territory>();
 #pragma warning restore IDE1006 // Naming Styles
 }

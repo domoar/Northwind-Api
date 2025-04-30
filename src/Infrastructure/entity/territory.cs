@@ -21,6 +21,6 @@ public partial class territory {
 #pragma warning restore IDE1006 // Naming Styles
 
 #pragma warning disable IDE1006 // Naming Styles
-  public virtual ICollection<employee> employees { get; set; } = [];
+  public virtual ICollection<employee> employees { get; set; } = new List<employee>();
 #pragma warning restore IDE1006 // Naming Styles
 }

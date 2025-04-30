@@ -76,10 +76,10 @@ public partial class employee {
   public string? photo_path { get; set; }
 #pragma warning restore IDE1006 // Naming Styles
 
-  public virtual ICollection<employee> Inversereports_toNavigation { get; set; } = [];
+  public virtual ICollection<employee> Inversereports_toNavigation { get; set; } = new List<employee>();
 
 #pragma warning disable IDE1006 // Naming Styles
-  public virtual ICollection<order> orders { get; set; } = [];
+  public virtual ICollection<order> orders { get; set; } = new List<order>();
 #pragma warning restore IDE1006 // Naming Styles
 
 #pragma warning disable IDE1006 // Naming Styles
@@ -87,6 +87,6 @@ public partial class employee {
 #pragma warning restore IDE1006 // Naming Styles
 
 #pragma warning disable IDE1006 // Naming Styles
-  public virtual ICollection<territory> territories { get; set; } = [];
+  public virtual ICollection<territory> territories { get; set; } = new List<territory>();
 #pragma warning restore IDE1006 // Naming Styles
 }

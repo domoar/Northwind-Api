@@ -11,6 +11,6 @@ public partial class customer_demographic {
 #pragma warning restore IDE1006 // Naming Styles
 
 #pragma warning disable IDE1006 // Naming Styles
-  public virtual ICollection<customer> customers { get; set; } = [];
+  public virtual ICollection<customer> customers { get; set; } = new List<customer>();
 #pragma warning restore IDE1006 // Naming Styles
 }
