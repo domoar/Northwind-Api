@@ -21,6 +21,6 @@ public partial class category {
 #pragma warning restore IDE1006 // Naming Styles
 
 #pragma warning disable IDE1006 // Naming Styles
-  public virtual ICollection<product> products { get; set; } = [];
+  public virtual ICollection<product> products { get; set; } = new List<product>();
 #pragma warning restore IDE1006 // Naming Styles
 }

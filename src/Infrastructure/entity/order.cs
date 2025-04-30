@@ -69,7 +69,7 @@ public partial class order {
 #pragma warning restore IDE1006 // Naming Styles
 
 #pragma warning disable IDE1006 // Naming Styles
-  public virtual ICollection<order_detail> order_details { get; set; } = new List<order_detail>();
+  public virtual ICollection<order_detail> order_details { get; set; } = [];
 #pragma warning restore IDE1006 // Naming Styles
 
 #pragma warning disable IDE1006 // Naming Styles

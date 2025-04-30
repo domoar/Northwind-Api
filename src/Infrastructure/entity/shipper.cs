@@ -17,6 +17,6 @@ public partial class shipper {
 #pragma warning restore IDE1006 // Naming Styles
 
 #pragma warning disable IDE1006 // Naming Styles
-  public virtual ICollection<order> orders { get; set; } = new List<order>();
+  public virtual ICollection<order> orders { get; set; } = [];
 #pragma warning restore IDE1006 // Naming Styles
 }
