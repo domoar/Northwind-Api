@@ -41,27 +41,6 @@ public class ProductService {
     return existing;
   }
 
-  public async Task<product?> PatchAsync(int id, Dictionary<string, object> updates, CancellationToken ct) {
-    var product = await _repository.GetById<product>(id, ct);
-    if (product == null) {
-      _logger.LogWarning("Product not found for patch: {ProductId}", id);
-      return null;
-    }
-
-    var type = typeof(product);
-    foreach (var kvp in updates) {
-      var prop = type.GetProperty(kvp.Key, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
-      if (prop != null && prop.CanWrite) {
-        object? value = Convert.ChangeType(kvp.Value, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
-        prop.SetValue(product, value);
-      }
-    }
-
-    await _repository.Update(product, ct);
-    await _repository.SaveChangesAsync(ct);
-    return product;
-  }
-
   public async Task<bool> DeleteAsync(int id, CancellationToken ct) {
     var product = await _repository.GetById<product>(id, ct);
     if (product == null) {

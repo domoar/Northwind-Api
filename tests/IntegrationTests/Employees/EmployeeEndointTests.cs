@@ -1,0 +1,31 @@
+﻿using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using FluentAssertions;
+using Xunit;
+using static IntegrationTests.NorthwindApiFactory;
+
+namespace IntegrationTests.Employees;
+
+[Trait("category", "employeee")]
+[Collection("ApiFactory collection")]
+public class EmployeeEndpointTests {
+  private readonly HttpClient _client;
+
+  public EmployeeEndpointTests(NorthwindApiFactory factory) {
+    _client = factory.CreateClient();
+  }
+
+  [Fact(DisplayName = "GET /api/Employee/GetEmployee returns 200 OK")]
+  [Trait("Category", "Integration")]
+  public async Task GetEmployee_ReturnsOk() {
+    // Arrange
+    const string url = "api/Employee/GetEmployee?employeeId=1";
+
+    // Act
+    var response = await _client.GetAsync(url);
+
+    // Assert
+    response.StatusCode.Should().Be(HttpStatusCode.OK);
+  }
+}

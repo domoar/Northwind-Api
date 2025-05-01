@@ -1,8 +1,11 @@
 ﻿using System.Net;
 using FluentAssertions;
+using static IntegrationTests.NorthwindApiFactory;
 
 namespace IntegrationTests;
-public class BaseIntegrationTest : IClassFixture<NorthwindApiFactory> {
+
+[Collection("ApiFactory collection")]
+public class BaseIntegrationTest {
 
   private readonly HttpClient _client;
 

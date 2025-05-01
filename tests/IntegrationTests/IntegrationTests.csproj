@@ -20,6 +20,7 @@
 			Refer to the release notes: https://github.com/fluentassertions/fluentassertions/releases/tag/8.0.0 -->
         <PackageReference Include="Microsoft.CodeCoverage" Version="17.12.0" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+        <PackageReference Include="Npgsql" Version="8.0.7" />
         <PackageReference Include="NSubstitute" Version="5.3.0" />
         <PackageReference Include="Testcontainers" Version="4.4.0" />
         <PackageReference Include="Testcontainers.PostgreSql" Version="4.4.0" />
@@ -29,6 +30,7 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
+    	<PackageReference Include="ConsoleTables" Version="2.4.2" />
     </ItemGroup>
 
 	<ItemGroup>
@@ -38,7 +40,25 @@
 		<ProjectReference Include="..\..\src\Infrastructure\Infrastructure.csproj" />
 	</ItemGroup>
 
-    <ItemGroup>
+	<ItemGroup>
+		<Content Include="..\..\.extras\db\postgres\sql\create-db-northwind.sql" CopyToOutputDirectory="PreserveNewest">
+			<Visible>false</Visible>
+		</Content>
+		<Content Include="..\..\.extras\db\postgres\sql\create-schema-northwind.sql" CopyToOutputDirectory="PreserveNewest">
+			<Visible>false</Visible>
+		</Content>
+		<Content Include="..\..\.extras\db\postgres\sql\northwind.sql" CopyToOutputDirectory="PreserveNewest">
+			<Visible>false</Visible>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\.extras\db\postgres\sql\**\*">
+			<Link>sql\%(RecursiveDir)%(Filename)%(Extension)</Link>
+		</None>
+	</ItemGroup>
+	
+	<ItemGroup>
         <Using Include="Xunit" />
     </ItemGroup>
 
