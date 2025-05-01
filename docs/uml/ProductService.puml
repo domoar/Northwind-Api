@@ -5,7 +5,6 @@ class ProductService {
     + ProductService(logger:ILogger<ProductService>, repository:NorthwindRepository)
     + <<async>> Create(product:product, ct:CancellationToken) : Task<product>
     + <<async>> Update(id:int, product:product, ct:CancellationToken) : Task<product?>
-    + <<async>> PatchAsync(id:int, updates:Dictionary<string, object>, ct:CancellationToken) : Task<product?>
     + <<async>> DeleteAsync(id:int, ct:CancellationToken) : Task<bool>
 }
 @enduml
