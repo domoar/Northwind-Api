@@ -229,7 +229,7 @@ var assemblies = [
       { "name": "Api.Extension.PagedResponseUtil", "rp": "Api_PagedResponseUtil.html", "cl": 0, "ucl": 14, "cal": 14, "tl": 22, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Api.Middleware.GlobalExceptionHandler", "rp": "Api_GlobalExceptionHandler.html", "cl": 6, "ucl": 17, "cal": 23, "tl": 42, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Api.Request.Parameters.CustomerRequest", "rp": "Api_CustomerRequest.html", "cl": 1, "ucl": 0, "cal": 1, "tl": 5, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "Api.Request.Validation.CustomerRequestValidator<T>", "rp": "Api_CustomerRequestValidator_1.html", "cl": 11, "ucl": 0, "cal": 11, "tl": 20, "cb": 2, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Api.Request.Validation.CustomerRequestValidator", "rp": "Api_CustomerRequestValidator.html", "cl": 16, "ucl": 0, "cal": 16, "tl": 25, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Api.Response.PagedResponse<T>", "rp": "Api_PagedResponse_1.html", "cl": 0, "ucl": 21, "cal": 21, "tl": 54, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Api.Response.Response<T>", "rp": "Api_Response_1.html", "cl": 0, "ucl": 4, "cal": 4, "tl": 18, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Api.ServiceExtension.ApiVersioningServiceCollectionExtensions", "rp": "Api_ApiVersioningServiceCollectionExtensions.html", "cl": 14, "ucl": 2, "cal": 16, "tl": 24, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
@@ -239,7 +239,7 @@ var assemblies = [
       { "name": "Api.ServiceExtension.ProblemDetailsServiceCollectionExtensions", "rp": "Api_ProblemDetailsServiceCollectionExtensions.html", "cl": 24, "ucl": 0, "cal": 24, "tl": 34, "cb": 2, "tb": 4, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Api.ServiceExtension.ResponseCompressionServiceCollectionExtensions", "rp": "Api_ResponseCompressionServiceCollectionExtensions.html", "cl": 11, "ucl": 0, "cal": 11, "tl": 19, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Api.ServiceExtension.SwaggerGeneration", "rp": "Api_SwaggerGeneration.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 11, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "Program", "rp": "Api_Program.html", "cl": 56, "ucl": 3, "cal": 59, "tl": 101, "cb": 5, "tb": 8, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Program", "rp": "Api_Program.html", "cl": 60, "ucl": 3, "cal": 63, "tl": 106, "cb": 5, "tb": 8, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
     ]},
   {
     "name": "Application",
