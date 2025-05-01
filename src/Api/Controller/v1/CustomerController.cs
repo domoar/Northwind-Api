@@ -38,6 +38,7 @@ public class CustomerController : ControllerBase {
       return NotFound(new ProblemDetails {
         Title = "Customer not found",
         Status = StatusCodes.Status404NotFound,
+        Detail = $"Not customer with id „{req.CustomerID}“ exists",
       });
     }
     return Ok(result);
