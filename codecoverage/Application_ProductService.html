@@ -45,19 +45,19 @@
 </tr>
 <tr>
 <th>Uncovered lines:</th>
-<td class="limit-width right" title="50">50</td>
+<td class="limit-width right" title="33">33</td>
 </tr>
 <tr>
 <th>Coverable lines:</th>
-<td class="limit-width right" title="50">50</td>
+<td class="limit-width right" title="33">33</td>
 </tr>
 <tr>
 <th>Total lines:</th>
-<td class="limit-width right" title="77">77</td>
+<td class="limit-width right" title="56">56</td>
 </tr>
 <tr>
 <th>Line coverage:</th>
-<td class="limit-width right" title="0 of 50">0%</td>
+<td class="limit-width right" title="0 of 33">0%</td>
 </tr>
 </table>
 </div>
@@ -75,11 +75,11 @@
 </tr>
 <tr>
 <th>Total branches:</th>
-<td class="limit-width right" title="14">14</td>
+<td class="limit-width right" title="4">4</td>
 </tr>
 <tr>
 <th>Branch coverage:</th>
-<td class="limit-width right" title="0 of 14">0%</td>
+<td class="limit-width right" title="0 of 4">0%</td>
 </tr>
 </table>
 </div>
@@ -110,8 +110,7 @@
 <tr><td title=".ctor(Microsoft.Extensions.Logging.ILogger`1&lt;Application.Service.ProductService&gt;,Infrastructure.Repository.NorthwindRepository)"><a href="#file0_line13" class="navigatetohash">.ctor(...)</a></td><td>100%</td><td>2</td><td>1</td><td>0%</td></tr>
 <tr><td title="Create()"><a href="#file0_line18" class="navigatetohash">Create()</a></td><td>100%</td><td>2</td><td>1</td><td>0%</td></tr>
 <tr><td title="Update()"><a href="#file0_line25" class="navigatetohash">Update()</a></td><td>0%</td><td>6</td><td>2</td><td>0%</td></tr>
-<tr><td title="PatchAsync()"><a href="#file0_line44" class="navigatetohash">PatchAsync()</a></td><td>0%</td><td>110</td><td>10</td><td>0%</td></tr>
-<tr><td title="DeleteAsync()"><a href="#file0_line65" class="navigatetohash">DeleteAsync()</a></td><td>0%</td><td>6</td><td>2</td><td>0%</td></tr>
+<tr><td title="DeleteAsync()"><a href="#file0_line44" class="navigatetohash">DeleteAsync()</a></td><td>0%</td><td>6</td><td>2</td><td>0%</td></tr>
 </tbody>
 </table>
 </div>
@@ -164,52 +163,30 @@
 <tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line41"></a><code>41</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;existing;</code></td></tr>
 <tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line42"></a><code>42</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;}</code></td></tr>
 <tr class="" title="Not coverable" data-coverage="{'AllTestMethods': {'VC': '', 'LVS': 'gray'}}"><td class="gray">&nbsp;</td><td class="leftmargin rightmargin right"></td><td class="rightmargin right"><a id="file0_line43"></a><code>43</code></td><td></td><td class="lightgray"><code></code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line44"></a><code>44</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;public&nbsp;async&nbsp;Task&lt;product?&gt;&nbsp;PatchAsync(int&nbsp;id,&nbsp;Dictionary&lt;string,&nbsp;object&gt;&nbsp;updates,&nbsp;CancellationToken&nbsp;ct)&nbsp;{</code></td></tr>
+<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line44"></a><code>44</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;public&nbsp;async&nbsp;Task&lt;bool&gt;&nbsp;DeleteAsync(int&nbsp;id,&nbsp;CancellationToken&nbsp;ct)&nbsp;{</code></td></tr>
 <tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line45"></a><code>45</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;product&nbsp;=&nbsp;await&nbsp;_repository.GetById&lt;product&gt;(id,&nbsp;ct);</code></td></tr>
 <tr class="coverableline" title="Not covered (0 visits, 0 of 2 branches are covered)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line46"></a><code>46</code></td><td class="percentagebar percentagebar0"><i class="icon-fork"></i></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(product&nbsp;==&nbsp;null)&nbsp;{</code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line47"></a><code>47</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_logger.LogWarning(&quot;Product&nbsp;not&nbsp;found&nbsp;for&nbsp;patch:&nbsp;{ProductId}&quot;,&nbsp;id);</code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line48"></a><code>48</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;null;</code></td></tr>
+<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line47"></a><code>47</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_logger.LogWarning(&quot;Product&nbsp;not&nbsp;found&nbsp;for&nbsp;delete:&nbsp;{ProductId}&quot;,&nbsp;id);</code></td></tr>
+<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line48"></a><code>48</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;false;</code></td></tr>
 <tr class="" title="Not coverable" data-coverage="{'AllTestMethods': {'VC': '', 'LVS': 'gray'}}"><td class="gray">&nbsp;</td><td class="leftmargin rightmargin right"></td><td class="rightmargin right"><a id="file0_line49"></a><code>49</code></td><td></td><td class="lightgray"><code>&nbsp;&nbsp;&nbsp;&nbsp;}</code></td></tr>
 <tr class="" title="Not coverable" data-coverage="{'AllTestMethods': {'VC': '', 'LVS': 'gray'}}"><td class="gray">&nbsp;</td><td class="leftmargin rightmargin right"></td><td class="rightmargin right"><a id="file0_line50"></a><code>50</code></td><td></td><td class="lightgray"><code></code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line51"></a><code>51</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;type&nbsp;=&nbsp;typeof(product);</code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits, 0 of 2 branches are covered)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line52"></a><code>52</code></td><td class="percentagebar percentagebar0"><i class="icon-fork"></i></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;foreach&nbsp;(var&nbsp;kvp&nbsp;in&nbsp;updates)&nbsp;{</code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line53"></a><code>53</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;prop&nbsp;=&nbsp;type.GetProperty(kvp.Key,&nbsp;BindingFlags.IgnoreCase&nbsp;|&nbsp;BindingFlags.Public&nbsp;|&nbsp;BindingFlags.Instance);</code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits, 0 of 4 branches are covered)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line54"></a><code>54</code></td><td class="percentagebar percentagebar0"><i class="icon-fork"></i></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(prop&nbsp;!=&nbsp;null&nbsp;&amp;&amp;&nbsp;prop.CanWrite)&nbsp;{</code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits, 0 of 2 branches are covered)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line55"></a><code>55</code></td><td class="percentagebar percentagebar0"><i class="icon-fork"></i></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;object?&nbsp;value&nbsp;=&nbsp;Convert.ChangeType(kvp.Value,&nbsp;Nullable.GetUnderlyingType(prop.PropertyType)&nbsp;??&nbsp;prop.PropertyType</code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line56"></a><code>56</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prop.SetValue(product,&nbsp;value);</code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line57"></a><code>57</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line58"></a><code>58</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;}</code></td></tr>
-<tr class="" title="Not coverable" data-coverage="{'AllTestMethods': {'VC': '', 'LVS': 'gray'}}"><td class="gray">&nbsp;</td><td class="leftmargin rightmargin right"></td><td class="rightmargin right"><a id="file0_line59"></a><code>59</code></td><td></td><td class="lightgray"><code></code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line60"></a><code>60</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;await&nbsp;_repository.Update(product,&nbsp;ct);</code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line61"></a><code>61</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;await&nbsp;_repository.SaveChangesAsync(ct);</code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line62"></a><code>62</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;product;</code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line63"></a><code>63</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;}</code></td></tr>
-<tr class="" title="Not coverable" data-coverage="{'AllTestMethods': {'VC': '', 'LVS': 'gray'}}"><td class="gray">&nbsp;</td><td class="leftmargin rightmargin right"></td><td class="rightmargin right"><a id="file0_line64"></a><code>64</code></td><td></td><td class="lightgray"><code></code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line65"></a><code>65</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;public&nbsp;async&nbsp;Task&lt;bool&gt;&nbsp;DeleteAsync(int&nbsp;id,&nbsp;CancellationToken&nbsp;ct)&nbsp;{</code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line66"></a><code>66</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;product&nbsp;=&nbsp;await&nbsp;_repository.GetById&lt;product&gt;(id,&nbsp;ct);</code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits, 0 of 2 branches are covered)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line67"></a><code>67</code></td><td class="percentagebar percentagebar0"><i class="icon-fork"></i></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(product&nbsp;==&nbsp;null)&nbsp;{</code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line68"></a><code>68</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_logger.LogWarning(&quot;Product&nbsp;not&nbsp;found&nbsp;for&nbsp;delete:&nbsp;{ProductId}&quot;,&nbsp;id);</code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line69"></a><code>69</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;false;</code></td></tr>
-<tr class="" title="Not coverable" data-coverage="{'AllTestMethods': {'VC': '', 'LVS': 'gray'}}"><td class="gray">&nbsp;</td><td class="leftmargin rightmargin right"></td><td class="rightmargin right"><a id="file0_line70"></a><code>70</code></td><td></td><td class="lightgray"><code>&nbsp;&nbsp;&nbsp;&nbsp;}</code></td></tr>
-<tr class="" title="Not coverable" data-coverage="{'AllTestMethods': {'VC': '', 'LVS': 'gray'}}"><td class="gray">&nbsp;</td><td class="leftmargin rightmargin right"></td><td class="rightmargin right"><a id="file0_line71"></a><code>71</code></td><td></td><td class="lightgray"><code></code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line72"></a><code>72</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;await&nbsp;_repository.Delete(product,&nbsp;ct);</code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line73"></a><code>73</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;await&nbsp;_repository.SaveChangesAsync(ct);</code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line74"></a><code>74</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;_logger.LogInformation(&quot;Product&nbsp;deleted:&nbsp;{ProductId}&quot;,&nbsp;id);</code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line75"></a><code>75</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;true;</code></td></tr>
-<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line76"></a><code>76</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;}</code></td></tr>
-<tr class="" title="Not coverable" data-coverage="{'AllTestMethods': {'VC': '', 'LVS': 'gray'}}"><td class="gray">&nbsp;</td><td class="leftmargin rightmargin right"></td><td class="rightmargin right"><a id="file0_line77"></a><code>77</code></td><td></td><td class="lightgray"><code>}</code></td></tr>
+<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line51"></a><code>51</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;await&nbsp;_repository.Delete(product,&nbsp;ct);</code></td></tr>
+<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line52"></a><code>52</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;await&nbsp;_repository.SaveChangesAsync(ct);</code></td></tr>
+<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line53"></a><code>53</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;_logger.LogInformation(&quot;Product&nbsp;deleted:&nbsp;{ProductId}&quot;,&nbsp;id);</code></td></tr>
+<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line54"></a><code>54</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;true;</code></td></tr>
+<tr class="coverableline" title="Not covered (0 visits)" data-coverage="{'AllTestMethods': {'VC': '0', 'LVS': 'red'}}"><td class="red">&nbsp;</td><td class="leftmargin rightmargin right">0</td><td class="rightmargin right"><a id="file0_line55"></a><code>55</code></td><td></td><td class="lightred"><code>&nbsp;&nbsp;}</code></td></tr>
+<tr class="" title="Not coverable" data-coverage="{'AllTestMethods': {'VC': '', 'LVS': 'gray'}}"><td class="gray">&nbsp;</td><td class="leftmargin rightmargin right"></td><td class="rightmargin right"><a id="file0_line56"></a><code>56</code></td><td></td><td class="lightgray"><code>}</code></td></tr>
 </tbody>
 </table>
 </div>
-<div class="footer">Generated by: ReportGenerator 5.4.1.0<br />05/01/2025 - 17:41:58<br /><a href="https://github.com/danielpalme/ReportGenerator">GitHub</a> | <a href="https://reportgenerator.io">reportgenerator.io</a></div></div>
+<div class="footer">Generated by: ReportGenerator 5.4.1.0<br />05/01/2025 - 20:40:55<br /><a href="https://github.com/danielpalme/ReportGenerator">GitHub</a> | <a href="https://reportgenerator.io">reportgenerator.io</a></div></div>
 <div class="containerright">
 <div class="containerrightfixed">
 <h1>Methods/Properties</h1>
 <a href="#file0_line13" class="navigatetohash percentagebar percentagebar0" title="Line coverage: 0% - .ctor(Microsoft.Extensions.Logging.ILogger`1&lt;Application.Service.ProductService&gt;,Infrastructure.Repository.NorthwindRepository)"><i class="icon-cube"></i>.ctor(Microsoft.Extensions.Logging.ILogger`1&lt;Application.Service.ProductService&gt;,Infrastructure.Repository.NorthwindRepository)</a><br />
 <a href="#file0_line18" class="navigatetohash percentagebar percentagebar0" title="Line coverage: 0% - Create()"><i class="icon-cube"></i>Create()</a><br />
 <a href="#file0_line25" class="navigatetohash percentagebar percentagebar0" title="Line coverage: 0% - Update()"><i class="icon-cube"></i>Update()</a><br />
-<a href="#file0_line44" class="navigatetohash percentagebar percentagebar0" title="Line coverage: 0% - PatchAsync()"><i class="icon-cube"></i>PatchAsync()</a><br />
-<a href="#file0_line65" class="navigatetohash percentagebar percentagebar0" title="Line coverage: 0% - DeleteAsync()"><i class="icon-cube"></i>DeleteAsync()</a><br />
+<a href="#file0_line44" class="navigatetohash percentagebar percentagebar0" title="Line coverage: 0% - DeleteAsync()"><i class="icon-cube"></i>DeleteAsync()</a><br />
 <br/></div>
 </div></div>
 <script type="text/javascript">
