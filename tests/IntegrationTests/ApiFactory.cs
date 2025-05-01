@@ -1,16 +1,16 @@
 ﻿using Api;
 using ConsoleTables;
 using Infrastructure.Context;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Npgsql;
 using Testcontainers.PostgreSql;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace IntegrationTests;
 public class NorthwindApiFactory : WebApplicationFactory<IApiMarker>, IAsyncLifetime {
@@ -121,8 +121,7 @@ public class NorthwindApiFactory : WebApplicationFactory<IApiMarker>, IAsyncLife
       services.RemoveAll(typeof(DbContextOptions<NorthwindContext>));
       services.RemoveAll(typeof(NorthwindContext));
 
-      services.AddPooledDbContextFactory<NorthwindContext>((sp, options) =>
-      {
+      services.AddPooledDbContextFactory<NorthwindContext>((sp, options) => {
         var env = sp.GetRequiredService<IHostEnvironment>();
         var loggerFactory = sp.GetRequiredService<ILoggerFactory>();
 
