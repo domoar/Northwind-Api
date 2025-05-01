@@ -1,0 +1,43 @@
+﻿name: “NuGet Packages Health Checks”
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  check-packages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Check for outdated packages
+        run: |
+          echo "::group::Outdated packages"  
+          dotnet list package --outdated
+          echo "::endgroup::"
+        continue-on-error: true
+
+      - name: Check for known vulnerabilities
+        run: |
+          echo "::group::Vulnerable packages"  
+          dotnet list package --vulnerable --include-transitive
+          echo "::endgroup::"
+        continue-on-error: true
+
+      - name: Check for deprecated packages
+        run: |
+          echo "::group::Deprecated packages"  
+          dotnet list package --deprecated
+          echo "::endgroup::"
+        continue-on-error: true

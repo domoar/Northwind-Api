@@ -1,0 +1,10 @@
+﻿version: 2
+updates:
+  - package-ecosystem: "nuget"
+    directory: "/"               
+    schedule:
+      interval: "daily"
+    ignore:
+      - dependency-name: "FluentAssertions"
+        versions:
+          - ">7.0.0"
