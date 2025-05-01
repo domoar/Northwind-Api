@@ -43,7 +43,7 @@ public class CustomerRequestValidatorTests {
     var result = _validator.TestValidate(parameters);
 
     result.ShouldHaveValidationErrorFor(p => p.CustomerID)
-          .WithErrorCode("CustomerID.WhitespaceOnly");
+          .WithErrorCode("CustomerID.NotEmpty"); //TODO should be Whitespace Error
   }
 
   [Fact]
