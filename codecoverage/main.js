@@ -221,11 +221,11 @@ var assemblies = [
   {
     "name": "Api",
     "classes": [
-      { "name": "Api.Controller.v1.CustomerController", "rp": "Api_CustomerController.html", "cl": 0, "ucl": 20, "cal": 20, "tl": 48, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "Api.Controller.v1.EmployeeController", "rp": "Api_EmployeeController.html", "cl": 9, "ucl": 11, "cal": 20, "tl": 46, "cb": 1, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Api.Controller.v1.CustomerController", "rp": "Api_CustomerController.html", "cl": 14, "ucl": 6, "cal": 20, "tl": 48, "cb": 1, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Api.Controller.v1.EmployeeController", "rp": "Api_EmployeeController.html", "cl": 14, "ucl": 6, "cal": 20, "tl": 46, "cb": 1, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Api.Controller.v1.ProductController", "rp": "Api_ProductController.html", "cl": 0, "ucl": 18, "cal": 18, "tl": 47, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Api.Dev.TrackedRequestDuration", "rp": "Api_TrackedRequestDuration.html", "cl": 0, "ucl": 8, "cal": 8, "tl": 39, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "Api.Extension.LogTemplates", "rp": "Api_LogTemplates.html", "cl": 0, "ucl": 5, "cal": 5, "tl": 17, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Api.Extension.LogTemplates", "rp": "Api_LogTemplates.html", "cl": 5, "ucl": 0, "cal": 5, "tl": 17, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Api.Extension.PagedResponseUtil", "rp": "Api_PagedResponseUtil.html", "cl": 0, "ucl": 14, "cal": 14, "tl": 22, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Api.Middleware.GlobalExceptionHandler", "rp": "Api_GlobalExceptionHandler.html", "cl": 6, "ucl": 17, "cal": 23, "tl": 42, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Api.Request.Parameters.CustomerRequest", "rp": "Api_CustomerRequest.html", "cl": 1, "ucl": 0, "cal": 1, "tl": 5, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
@@ -246,8 +246,8 @@ var assemblies = [
     "classes": [
       { "name": "Application.DependencyInjectionContainer", "rp": "Application_DependencyInjectionContainer.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 13, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Application.Extension.LogTemplates", "rp": "Application_LogTemplates.html", "cl": 0, "ucl": 5, "cal": 5, "tl": 17, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "Application.service.CustomerService", "rp": "Application_CustomerService.html", "cl": 0, "ucl": 12, "cal": 12, "tl": 24, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "Application.service.EmployeeService", "rp": "Application_EmployeeService.html", "cl": 8, "ucl": 4, "cal": 12, "tl": 24, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Application.service.CustomerService", "rp": "Application_CustomerService.html", "cl": 12, "ucl": 0, "cal": 12, "tl": 24, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Application.service.EmployeeService", "rp": "Application_EmployeeService.html", "cl": 12, "ucl": 0, "cal": 12, "tl": 24, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Application.Service.ProductService", "rp": "Application_ProductService.html", "cl": 0, "ucl": 33, "cal": 33, "tl": 56, "cb": 0, "tb": 4, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
     ]},
   {
@@ -263,7 +263,7 @@ var assemblies = [
       { "name": "Infrastructure.Context.NorthwindContext", "rp": "Infrastructure_NorthwindContext.html", "cl": 222, "ucl": 0, "cal": 222, "tl": 283, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Infrastructure.DependencyInjectionContainer", "rp": "Infrastructure_DependencyInjectionContainer.html", "cl": 11, "ucl": 21, "cal": 32, "tl": 50, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Infrastructure.Entity.category", "rp": "Infrastructure_category.html", "cl": 0, "ucl": 5, "cal": 5, "tl": 26, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "Infrastructure.Entity.customer", "rp": "Infrastructure_customer.html", "cl": 0, "ucl": 13, "cal": 13, "tl": 58, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Infrastructure.Entity.customer", "rp": "Infrastructure_customer.html", "cl": 13, "ucl": 0, "cal": 13, "tl": 58, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Infrastructure.Entity.customer_demographic", "rp": "Infrastructure_customer_demographic.html", "cl": 0, "ucl": 3, "cal": 3, "tl": 16, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Infrastructure.Entity.employee", "rp": "Infrastructure_employee.html", "cl": 22, "ucl": 0, "cal": 22, "tl": 92, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Infrastructure.Entity.order", "rp": "Infrastructure_order.html", "cl": 0, "ucl": 18, "cal": 18, "tl": 78, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
@@ -275,7 +275,7 @@ var assemblies = [
       { "name": "Infrastructure.Entity.territory", "rp": "Infrastructure_territory.html", "cl": 0, "ucl": 5, "cal": 5, "tl": 26, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Infrastructure.Entity.us_state", "rp": "Infrastructure_us_state.html", "cl": 0, "ucl": 4, "cal": 4, "tl": 20, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Infrastructure.Extension.LogTemplates", "rp": "Infrastructure_LogTemplates.html", "cl": 0, "ucl": 5, "cal": 5, "tl": 17, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "Infrastructure.Repository.NorthwindRepository", "rp": "Infrastructure_NorthwindRepository.html", "cl": 11, "ucl": 39, "cal": 50, "tl": 72, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Infrastructure.Repository.NorthwindRepository", "rp": "Infrastructure_NorthwindRepository.html", "cl": 30, "ucl": 20, "cal": 50, "tl": 72, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Infrastructure.Service.HealthCheckResilienceService", "rp": "Infrastructure_HealthCheckResilienceService.html", "cl": 0, "ucl": 55, "cal": 55, "tl": 80, "cb": 0, "tb": 26, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
     ]},
 ];
