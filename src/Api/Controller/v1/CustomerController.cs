@@ -31,7 +31,7 @@ public class CustomerController : ControllerBase {
   [HttpGet]
   [ProducesResponseType(typeof(customer), StatusCodes.Status200OK)]
   [ProducesResponseType(StatusCodes.Status404NotFound)]
-  public async Task<IActionResult> GetCustomer(CustomerRequest req, CancellationToken ct) {
+  public async Task<IActionResult> GetCustomer([FromQuery] CustomerRequest req, CancellationToken ct) {
     var result = await _service.FindById(req.CustomerID, ct);
     if (result is null) {
       _logger.LogInformation("Customer {CustomerId} not found", req.CustomerID);

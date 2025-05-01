@@ -44,15 +44,20 @@ builder.Services.AddMemoryCache();
 
 builder.Services.AddHttpContextAccessor();
 
-builder
-  .Services.AddControllers()
-  .AddJsonOptions(options => {
-    options.JsonSerializerOptions.WriteIndented = false;
+builder.Services
+  .AddFluentValidationAutoValidation(fv => {
+    fv.DisableDataAnnotationsValidation = true;
+  })
+  .AddValidatorsFromAssemblyContaining<CustomerRequestValidator>();
+
+builder.Services
+  .AddControllers(options => {
+    options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true;
+  })
+  .AddJsonOptions(opts => {
+    opts.JsonSerializerOptions.WriteIndented = false;
   });
 
-builder
-  .Services.AddFluentValidationAutoValidation()
-  .AddValidatorsFromAssemblyContaining<CustomerRequestValidator<CustomerRequest>>();
 
 builder.Services.AddSingleton<Banner>();
 
