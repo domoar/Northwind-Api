@@ -316,8 +316,6 @@ cd dotnet format .\__Northwind__.sln --verbosity diagnostic
 
 ## Git Hooks
 
-## Git Hooks
-
 This repo ships with a pre-commit hook in **`.githooks/pre-commit`**. Enable it once per clone by running
 
 ```bash
