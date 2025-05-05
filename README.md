@@ -119,7 +119,7 @@ dotnet test --logger "console;verbosity=detailed"
 
 Code Coverage is generated from unittests and integrationtests and merged into a report via GitHub Actions using the [ReportGenerator](https://github.com/danielpalme/ReportGenerator) tool.
 
-[View Full Coverage Report](https://domoar.github.io/Northwind-Api/coverage/index.html)
+[View Full Coverage Report](https://domoar.github.io/Northwind-Api/codecoverage/index.html)
 
 ### Postman
 
