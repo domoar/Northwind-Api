@@ -1,9 +1,9 @@
 ﻿using FluentAssertions;
 
 namespace UnitTests.Api;
-[Trait("category", "api")]
 public class BaseUnitTest {
-  [Fact]
+  [Fact(DisplayName = "Sanity test")]
+  [Trait("category", "api")]
   public void True_Should_Be_True() {
     // Arrange
     Boolean boolValue;
@@ -15,8 +15,9 @@ public class BaseUnitTest {
     boolValue.Should().BeTrue("Expected the value to be true.");
   }
 
-  [Theory]
+  [Theory(DisplayName = "Sanity test")]
   [InlineData(true)]
+  [Trait("category", "api")]
   public void True_Should_Be_True_ForData(bool inlineData) {
     // Arrange
     Boolean boolValue;

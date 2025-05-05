@@ -4,7 +4,6 @@ using FluentValidation.TestHelper;
 
 namespace UnitTests.Api.Request.Validation;
 
-[Trait("category", "api")]
 public class CustomerRequestValidatorTests {
   private readonly CustomerRequestValidator _validator;
 
@@ -15,6 +14,7 @@ public class CustomerRequestValidatorTests {
   public static int MaxIdLength => CustomerRequestValidator.MAX_ID_LENGTH;
 
   [Fact]
+  [Trait("category", "api")]
   public void Should_Have_Error_When_CustomerId_Is_Null() {
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
     var parameters = new CustomerRequest { CustomerID = null };
@@ -27,6 +27,7 @@ public class CustomerRequestValidatorTests {
   }
 
   [Fact]
+  [Trait("category", "api")]
   public void Should_Have_Error_When_CustomerId_Is_Empty() {
     var parameters = new CustomerRequest { CustomerID = "" };
 
@@ -37,6 +38,7 @@ public class CustomerRequestValidatorTests {
   }
 
   [Fact]
+  [Trait("category", "api")]
   public void Should_Have_Error_When_CustomerId_Is_Only_Whitespace() {
     var parameters = new CustomerRequest { CustomerID = "   " };
 
@@ -47,6 +49,7 @@ public class CustomerRequestValidatorTests {
   }
 
   [Fact]
+  [Trait("category", "api")]
   public void Should_Have_Error_When_CustomerId_Is_Too_Long() {
     var parameters = new CustomerRequest { CustomerID = new string('x', MaxIdLength + 1) };
 
@@ -57,6 +60,7 @@ public class CustomerRequestValidatorTests {
   }
 
   [Fact]
+  [Trait("category", "api")]
   public void Should_Not_Have_Errors_When_CustomerId_Is_Valid() {
     var parameters = new CustomerRequest { CustomerID = "ABCD123" };
 
