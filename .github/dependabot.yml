@@ -1,0 +1,16 @@
+﻿version: 2
+updates:
+  - package-ecosystem: "nuget"
+    directory: "/"               
+    schedule:
+      interval: "daily"
+    target-branch: "main"        
+    open-pull-requests-limit: 5
+    ignore:
+      - dependency-name: "FluentAssertions"
+        versions:
+          - ">7.0.0"
+    assignees:
+      - domoar
+    labels:
+      - dependencies

@@ -29,7 +29,7 @@ e.g.
 
 ```bash
 curl -X 'GET' \
-  'https://localhost:7104/api/Northwind/GetEmployee?employeeId=1' \
+  'https://localhost:7104/api/Employee/GetEmployee?employeeId=1' \
   -H 'accept: application/json'
 ```
 
@@ -93,25 +93,26 @@ to run the developement stack.
 ## Testing
 
 All Tests can be run by chaning the working directory of the unit or integration tests and then using the command:
-
-```bash
-cd tests/IntegrationTests
-dotnet test --logger "console;verbosity=detailed"
-```
-
-or
-
-```bash
-cd tests/UnitTests
-dotnet test --logger "console;verbosity=detailed"
-```
-
 Applying the `[Trait]` attribute at the **class** level allows, that every test method in that class can be run seperatly.
 
 Example to run individual test parts:
 
 ```bash
 dotnet test --filter "category=application"
+```
+
+### IntegrationTests
+
+```bash
+cd tests/IntegrationTests
+dotnet test --logger "console;verbosity=detailed"
+```
+
+### UnitTests
+
+```bash
+cd tests/UnitTests
+dotnet test --logger "console;verbosity=detailed"
 ```
 
 ### Code Coverage
@@ -312,8 +313,6 @@ Using the .editorconfig file all projects can be formatted using
 ```bash
 cd dotnet format .\__Northwind__.sln --verbosity diagnostic
 ```
-
-## Git Hooks
 
 ## Git Hooks
 

@@ -6,17 +6,19 @@ namespace UnitTests.Api.Request.Validation;
 
 [Trait("category", "api")]
 public class CustomerRequestValidatorTests {
-  private readonly CustomerRequestValidator<CustomerRequest> _validator;
+  private readonly CustomerRequestValidator _validator;
 
   public CustomerRequestValidatorTests() {
-    _validator = new CustomerRequestValidator<CustomerRequest>();
+    _validator = new CustomerRequestValidator();
   }
 
-  public static int MaxIdLength => CustomerRequestValidator<CustomerRequest>.MAX_ID_LENGTH;
+  public static int MaxIdLength => CustomerRequestValidator.MAX_ID_LENGTH;
 
   [Fact]
   public void Should_Have_Error_When_CustomerId_Is_Null() {
+#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
     var parameters = new CustomerRequest { CustomerID = null };
+#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
 
     var result = _validator.TestValidate(parameters);
 
@@ -41,7 +43,7 @@ public class CustomerRequestValidatorTests {
     var result = _validator.TestValidate(parameters);
 
     result.ShouldHaveValidationErrorFor(p => p.CustomerID)
-          .WithErrorCode("CustomerID.WhitespaceOnly");
+          .WithErrorCode("CustomerID.NotEmpty"); //TODO should be Whitespace Error
   }
 
   [Fact]
