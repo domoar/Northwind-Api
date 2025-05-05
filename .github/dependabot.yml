@@ -1,6 +1,6 @@
 ﻿version: 2
 updates:
-  - package-ecosystem: "nuget"
+  - package-ecosystem: "dotnet-sdk"
     directory: "/"               
     schedule:
       interval: "daily"
@@ -10,6 +10,10 @@ updates:
       - dependency-name: "FluentAssertions"
         versions:
           - ">7.0.0"
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
     assignees:
       - domoar
     labels:
