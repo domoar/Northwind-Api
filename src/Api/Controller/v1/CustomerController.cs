@@ -1,4 +1,4 @@
-﻿using Api.Extension;
+﻿using Api.Extensions;
 using Api.Request.Parameters;
 using Application.service;
 using Application.Service;

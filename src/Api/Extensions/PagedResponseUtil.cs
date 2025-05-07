@@ -1,4 +1,7 @@
-﻿namespace Api.Extension;
+﻿using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("UnitTests")]
+namespace Api.Extensions;
 
 internal static class PagedResponseUtil {
   internal static string GetBaseUrl(this HttpRequest? request) {
@@ -8,7 +11,7 @@ internal static class PagedResponseUtil {
     return $"{request.Scheme}://{request.Host}{request.Path}";
   }
 
-  internal static Uri BuildUri(this string baseUrl, int pageNumber, int pageSize) {
+  internal static Uri BuildPagedUrl(this string baseUrl, int pageNumber, int pageSize) {
     var uriBuilder = new UriBuilder(baseUrl) {
       Query = $"pageNumber={pageNumber}&pageSize={pageSize}",
     };

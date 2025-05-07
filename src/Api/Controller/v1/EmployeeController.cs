@@ -1,4 +1,4 @@
-﻿using Api.Extension;
+﻿using Api.Extensions;
 using Application.service;
 using Application.Service;
 using Infrastructure.Entity;

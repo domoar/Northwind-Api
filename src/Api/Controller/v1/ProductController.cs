@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 using System.Text.Json;
-using Api.Extension;
+using Api.Extensions;
 using Application.Service;
 using Infrastructure.Entity;
 using Microsoft.AspNetCore.Mvc;

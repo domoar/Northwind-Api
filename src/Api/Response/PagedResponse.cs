@@ -1,7 +1,7 @@
 ﻿using System;
 
 using System.Text.Json.Serialization;
-using Api.Extension;
+using Api.Extensions;
 namespace Api.Response;
 
 public class PagedResponse<T> : Response<T> {
@@ -23,7 +23,7 @@ public class PagedResponse<T> : Response<T> {
   public Uri? LastPage {
     get {
       var baseUrl = Request.GetBaseUrl();
-      return baseUrl.BuildUri(TotalPages, PageSize);
+      return baseUrl.BuildPagedUrl(TotalPages, PageSize);
     }
   }
 
@@ -37,7 +37,7 @@ public class PagedResponse<T> : Response<T> {
   public Uri? NextPage {
     get {
       var baseUrl = Request.GetBaseUrl();
-      return baseUrl.BuildUri(PageNumber + 1, PageSize);
+      return baseUrl.BuildPagedUrl(PageNumber + 1, PageSize);
     }
   }
 
@@ -45,7 +45,7 @@ public class PagedResponse<T> : Response<T> {
   public Uri? PreviousPage {
     get {
       var baseUrl = Request.GetBaseUrl();
-      return PageNumber > 1 ? baseUrl.BuildUri(PageNumber - 1, PageSize) : null;
+      return PageNumber > 1 ? baseUrl.BuildPagedUrl(PageNumber - 1, PageSize) : null;
     }
   }
 
